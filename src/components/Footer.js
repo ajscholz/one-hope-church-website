@@ -1,9 +1,9 @@
 import React from "react"
 import styled from "styled-components"
 
-export default () => {
+export default ({ hide }) => {
   return (
-    <Footer>
+    <Footer hide={hide}>
       © {new Date().getFullYear()}, Built with
       {` `}
       <a href="https://www.gatsbyjs.org">Gatsby</a>
@@ -16,7 +16,7 @@ const Footer = styled.footer`
   color: white;
   width: 100vw;
   height: 4rem;
-  display: flex;
+  display: ${props => (props.hide ? "none" : "flex")};
   justify-content: center;
   align-items: center;
   position: absolute;

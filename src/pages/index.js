@@ -19,7 +19,7 @@ export const query = graphql`
 `
 
 const IndexPage = ({ data }) => (
-  <Layout>
+  <Layout footer="hide">
     <SEO title="Home" />
     <HeroImage image={data.pageBackground.childImageSharp.fluid} home>
       <h1>goodbye</h1>
