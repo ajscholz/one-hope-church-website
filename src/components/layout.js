@@ -42,6 +42,10 @@ Layout.propTypes = {
 const Main = styled.main`
   margin: 0 auto;
   max-width: 960;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   /* padding: 0px 1.0875rem 1.45rem; */
   padding-top: 0;
 `
