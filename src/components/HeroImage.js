@@ -22,10 +22,10 @@ const HeroImage = ({ className, image, children, home }) => {
 }
 
 const StyledBackgroundImage = styled(BackgroundImage)`
-  height: ${props => (props.home ? "90vh" : "40vh")};
-  /* position: absolute;
+  height: ${props => (props.home ? "100vh" : "40vh")};
+  position: absolute;
   top: -4rem;
-  left: 0; */
+  left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
