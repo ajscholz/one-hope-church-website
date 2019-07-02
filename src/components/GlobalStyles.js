@@ -5,6 +5,7 @@ export default createGlobalStyle`
     font-family: "Montserrat";
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
+    box-sizing: border-box;
   }
   body {
     margin: 0;
