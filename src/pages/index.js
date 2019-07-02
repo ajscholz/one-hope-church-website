@@ -1,14 +1,29 @@
 import React from "react"
-import { Link } from "gatsby"
-import Navbar from "../components/Navbar"
+import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
+import HeroImage from "../components/HeroImage"
 
-const IndexPage = () => (
+export const query = graphql`
+  {
+    pageBackground: file(name: { eq: "index-hero" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
+
+const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" />
+    <HeroImage image={data.pageBackground.childImageSharp.fluid} home>
+      <h1>goodbye</h1>
+    </HeroImage>
     <h1>Hi people</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
