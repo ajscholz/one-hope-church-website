@@ -26,13 +26,6 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-source-googlemaps-geocoding",
-      options: {
-        key: "AIzaSyDBkvXo0CPbEMhEr4I900gRQphzwJaM4EA",
-        address: "1389 E. Cooke Rd., Columbus, OH 43224",
-      },
-    },
-    {
       resolve: `gatsby-plugin-favicon`,
       options: {
         logo: "./src/images/favicon.png",
