@@ -12,6 +12,7 @@ export default ({ hide }) => {
 }
 
 const Footer = styled.footer`
+  margin-bottom: 4rem;
   background: black;
   color: white;
   width: 100vw;
@@ -21,4 +22,7 @@ const Footer = styled.footer`
   align-items: center;
   position: absolute;
   bottom: 0;
+  @media (min-width: 577px) {
+    margin-bottom: 0;
+  }
 `
