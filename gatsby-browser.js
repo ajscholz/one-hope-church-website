@@ -6,7 +6,7 @@
 
 // You can delete this file if you're not using it
 
-require("typeface-montserrat")
+require("typeface-raleway")
 
 export const onClientEntry = () => {
   // IntersectionObserver polyfill for gatsby-background-image (Safari, IE)

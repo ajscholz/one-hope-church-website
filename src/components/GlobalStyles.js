@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components"
 
 export default createGlobalStyle`
   * {
-    font-family: "Montserrat";
+    font-family: "Raleway";
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
     box-sizing: border-box;
