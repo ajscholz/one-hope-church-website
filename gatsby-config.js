@@ -1,3 +1,5 @@
+require("regenerator-runtime/runtime")
+
 module.exports = {
   siteMetadata: {
     name: `One Hope Community Church`,
@@ -21,6 +23,13 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: "gatsby-source-googlemaps-geocoding",
+      options: {
+        key: "AIzaSyDBkvXo0CPbEMhEr4I900gRQphzwJaM4EA",
+        address: "1389 E. Cooke Rd., Columbus, OH 43224",
       },
     },
     {
