@@ -12,7 +12,7 @@ export const query = graphql`
     pageBackground: file(name: { eq: "index-hero" }) {
       childImageSharp {
         fluid {
-          src
+          ...GatsbyImageSharpFluid
         }
       }
     }
