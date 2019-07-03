@@ -4,6 +4,8 @@ import styled from "styled-components"
 import BackgroundImage from "gatsby-background-image"
 import Img from "gatsby-image"
 
+import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api"
+
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 import HeroImage from "../components/HeroImage"
@@ -39,6 +41,10 @@ export const query = graphql`
 `
 
 const About = ({ data }) => {
+  const oneHopeChurch = {
+    lat: 40.047241,
+    lng: -82.978953,
+  }
   const storyBackgroundImageStack = [
     data.story.childImageSharp.fluid,
     `linear-gradient(120deg, rgba(57, 70, 72, .8), rgba(57,70,72,.8))`,
@@ -100,6 +106,7 @@ const About = ({ data }) => {
       <Section>
         <h1>Pastor</h1>
       </Section>
+
       <Section>
         <h1>Location</h1>
         <Header>Address</Header>
@@ -109,8 +116,26 @@ const About = ({ data }) => {
         </Address>
         <Header>Service Time</Header>
         <ServiceTime>Sundays | 10:30a</ServiceTime>
-        <h1>Map here</h1>
+        <LoadScript
+          id="script-loader"
+          googleMapsApiKey="AIzaSyDBkvXo0CPbEMhEr4I900gRQphzwJaM4EA"
+          preventGoogleFontsLoading={true}
+        >
+          <GoogleMap
+            id="circle-example"
+            mapContainerStyle={{
+              width: "80vw",
+              height: "300px",
+            }}
+            zoom={15}
+            center={oneHopeChurch}
+            options={{ disableDefaultUI: true, zoomControl: true }}
+          >
+            <Marker position={oneHopeChurch} />
+          </GoogleMap>
+        </LoadScript>
       </Section>
+
       <Section>
         <h1>Contact</h1>
       </Section>
