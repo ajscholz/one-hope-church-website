@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Andrew Scholz <andrew@citynorth.church>",
   "dependencies": {
+    "formik": "^1.5.7",
     "gatsby": "^2.12.0",
     "gatsby-background-image": "^0.7.6",
     "gatsby-image": "^2.2.3",
@@ -14,6 +15,7 @@
     "gatsby-plugin-react-helmet": "^3.1.0",
     "gatsby-plugin-sharp": "^2.2.1",
     "gatsby-source-filesystem": "^2.1.1",
+    "gatsby-source-googlemaps-geocoding": "^1.0.0",
     "gatsby-transformer-sharp": "^2.2.0",
     "intersection-observer": "^0.7.0",
     "prop-types": "^15.7.2",
@@ -22,7 +24,8 @@
     "react-helmet": "^5.2.1",
     "react-icons": "^3.7.0",
     "styled-components": "^4.3.2",
-    "typeface-montserrat": "^0.0.54"
+    "typeface-montserrat": "^0.0.54",
+    "typeface-raleway": "^0.0.54"
   },
   "devDependencies": {
     "prettier": "^1.18.2"
