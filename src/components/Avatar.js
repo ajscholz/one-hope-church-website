@@ -18,11 +18,9 @@ const TeamContainer = styled.div`
   align-items: center;
   width: 300px;
   text-align: center;
-  margin-bottom: 3rem;
-  margin-right: 2rem;
+  margin: 0 1rem 3rem 1rem;
   &:last-of-type {
     margin-bottom: 0pc;
-    margin-right: 0;
   }
 `
 
