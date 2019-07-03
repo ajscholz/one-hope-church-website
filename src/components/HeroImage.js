@@ -23,13 +23,16 @@ const HeroImage = ({ className, image, children, home }) => {
 }
 
 const StyledBackgroundImage = styled(BackgroundImage)`
-  height: ${props => (props.home ? "100vh" : "40vh")};
+  height: calc(100vh - 4rem);
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   z-index: -1;
+  @media (min-width: 577px) {
+    height: ${props => (props.home ? "100vh" : "40vh")};
+  }
 `
 
 export default HeroImage
