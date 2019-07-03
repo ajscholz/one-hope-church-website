@@ -23,7 +23,11 @@ const NotFoundPage = ({ data }) => (
     <SEO title="404: Not found" />
     <HeroImage image={data.hero.childImageSharp.fluid} full>
       <StyledP>You just hit a page that doesn't{"\u00A0"}exist...</StyledP>
-      <StyledEmoji>😢</StyledEmoji>
+      <StyledEmoji>
+        <span role="img" aria-label="crying">
+          😢
+        </span>
+      </StyledEmoji>
     </HeroImage>
   </Layout>
 )

@@ -3,7 +3,6 @@ import styled from "styled-components"
 import BackgroundImage from "gatsby-background-image"
 
 const HeroImage = ({ className, image, children, full }) => {
-  console.log("hello")
   // adds overlay
   const backgroundFluidImageStack = [
     image,

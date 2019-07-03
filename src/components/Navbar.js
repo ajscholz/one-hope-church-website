@@ -19,7 +19,6 @@ const logo = graphql`
 export default () => {
   const image = useStaticQuery(logo)
   const navLinks = links.slice(1)
-  console.log(image.file.childImageSharp.fluid)
   return (
     <Navbar>
       <Link to="/">
@@ -28,7 +27,7 @@ export default () => {
       <List>
         {navLinks.map(link => {
           return (
-            <StyledLink as={Link} to={link.path} key={link}>
+            <StyledLink as={Link} to={link.path} key={link.text}>
               {link.text}
             </StyledLink>
           )
