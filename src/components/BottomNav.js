@@ -9,12 +9,10 @@ export default () => {
       <List>
         {links.map(link => {
           return (
-            <Container>
+            <StyledLink as={Link} to={link.path} key={link}>
               <Icon as={link.icon} />
-              <StyledLink as={Link} to={link.path} key={link}>
-                {link.text}
-              </StyledLink>
-            </Container>
+              {link.text}
+            </StyledLink>
           )
         })}
       </List>
@@ -30,6 +28,7 @@ const Navbar = styled.nav`
   background: white;
   display: flex;
   align-items: center;
+  z-index: 1;
   @media (min-width: 576px) {
     display: none;
   }
@@ -42,15 +41,9 @@ const List = styled.ul`
   display: flex;
   justify-content: space-evenly;
 `
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`
-
 const Icon = styled.div`
   font-size: 1.1rem;
+  margin-bottom: 0.3rem;
 `
 
 const StyledLink = styled.li`
@@ -58,5 +51,7 @@ const StyledLink = styled.li`
   text-transform: capitalize;
   font-size: 0.8rem;
   color: black;
-  margin-top: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `

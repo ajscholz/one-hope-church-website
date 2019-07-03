@@ -29,7 +29,7 @@ const StyledBackgroundImage = styled(BackgroundImage)`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  z-index: -1;
+  z-index: 0;
   @media (min-width: 577px) {
     height: ${props => (props.home ? "100vh" : "40vh")};
   }
