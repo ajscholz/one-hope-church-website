@@ -2,7 +2,6 @@ import React from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
 import BackgroundImage from "gatsby-background-image"
-import Img from "gatsby-image"
 
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api"
 
@@ -11,6 +10,7 @@ import SEO from "../components/Seo"
 import HeroImage from "../components/HeroImage"
 import Section from "../components/Section"
 import Banner from "../components/Banner"
+import Avatar from "../components/Avatar"
 
 import { FaUmbrella } from "react-icons/fa"
 
@@ -31,6 +31,20 @@ export const query = graphql`
       }
     }
     geri: file(name: { eq: "team-geri" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    jennifer: file(name: { eq: "team-jennifer" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    janet: file(name: { eq: "team-janet" }) {
       childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid
@@ -98,9 +112,21 @@ const About = ({ data }) => {
       <Section>
         <h1>Team</h1>
         <TeamContainer>
-          <Avatar fluid={data.geri.childImageSharp.fluid}></Avatar>
-          <Name>Gerri Nugent</Name>
-          <JobTitle>Finance And Prime Time Pastor</JobTitle>
+          <Avatar
+            image={data.geri.childImageSharp.fluid}
+            name="Gerri Nugent"
+            title="Finance and Prime Time Pastor"
+          />
+          <Avatar
+            image={data.jennifer.childImageSharp.fluid}
+            name="Jennifer Schrappe"
+            title="Worship Pastor"
+          />
+          <Avatar
+            image={data.janet.childImageSharp.fluid}
+            name="Janet Walker"
+            title="Outreach Pastor"
+          />
         </TeamContainer>
       </Section>
       <Section>
@@ -202,28 +228,10 @@ const StoryDescription = styled.p`
 `
 
 const TeamContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-wrap: none;
-  align-items: center;
-`
-
-const Avatar = styled(Img)`
   width: 100%;
-  border-radius: 50%;
-`
-
-const Name = styled.h5`
-  margin: 2rem auto 0.5rem auto;
-  color: #f8820d;
-  font-size: 2rem;
-`
-
-const JobTitle = styled.h6`
-  margin: 0;
-  color: darkslategray;
-  font-size: 0.8rem;
-  font-weight: 300;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 `
 
 const Address = styled(StoryDescription)`
