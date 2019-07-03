@@ -27,7 +27,7 @@ const Title = styled.h1`
 const Navbar = styled.nav`
   height: 4rem;
   width: 100vw;
-  background: tomato;
+  background: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
