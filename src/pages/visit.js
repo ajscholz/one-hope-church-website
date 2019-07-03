@@ -7,7 +7,7 @@ import HeroImage from "../components/HeroImage"
 
 export const query = graphql`
   {
-    hero: file(name: { eq: "about-hero" }) {
+    hero: file(name: { eq: "visit-hero" }) {
       childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid
@@ -17,13 +17,13 @@ export const query = graphql`
   }
 `
 
-const About = ({ data }) => (
+const Visit = ({ data }) => (
   <Layout>
     <HeroImage image={data.hero.childImageSharp.fluid} />
-    <SEO title="About" />
-    <h1>Hi from the About page</h1>
-    <p>Welcome to the about page</p>
+    <SEO title="Visit" />
+    <h1>Hi from the Visit page</h1>
+    <p>Welcome to the visit page</p>
   </Layout>
 )
 
-export default About
+export default Visit
