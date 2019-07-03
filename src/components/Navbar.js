@@ -7,7 +7,9 @@ export default ({ siteTitle }) => {
   const navLinks = links.slice(1)
   return (
     <Navbar>
-      <Title>{siteTitle}</Title>
+      <Title as={Link} to="/">
+        {siteTitle}
+      </Title>
       <List>
         {navLinks.map(link => {
           return (
@@ -36,6 +38,8 @@ const Navbar = styled.nav`
 
 const Title = styled.h1`
   color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
 `
 
 const List = styled.ul`
