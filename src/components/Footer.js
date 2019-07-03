@@ -13,6 +13,7 @@ export default ({ hide }) => {
 
 const Footer = styled.footer`
   margin-bottom: 4rem;
+  margin-top: auto;
   background: black;
   color: white;
   width: 100vw;
@@ -20,8 +21,6 @@ const Footer = styled.footer`
   display: ${props => (props.hide ? "none" : "flex")};
   justify-content: center;
   align-items: center;
-  position: absolute;
-  bottom: 0;
   @media (min-width: 577px) {
     margin-bottom: 0;
   }

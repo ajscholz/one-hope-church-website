@@ -41,6 +41,9 @@ export default () => {
 const Navbar = styled.nav`
   display: none;
   @media (min-width: 577px) {
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 7rem;
     width: 100vw;
     background: transparent;
@@ -48,6 +51,7 @@ const Navbar = styled.nav`
     justify-content: space-between;
     align-items: center;
     padding: 2rem;
+    z-index: 10;
   }
 `
 
