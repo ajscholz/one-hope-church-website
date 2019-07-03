@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import BackgroundImage from "gatsby-background-image"
 
-const HeroImage = ({ className, image, children, home }) => {
+const HeroImage = ({ className, image, children, full }) => {
   console.log("hello")
   // adds overlay
   const backgroundFluidImageStack = [
@@ -12,7 +12,7 @@ const HeroImage = ({ className, image, children, home }) => {
 
   return (
     <StyledBackgroundImage
-      home={home}
+      full={full}
       Tag="section"
       className={className}
       fluid={backgroundFluidImageStack}
@@ -23,7 +23,7 @@ const HeroImage = ({ className, image, children, home }) => {
 }
 
 const StyledBackgroundImage = styled(BackgroundImage)`
-  height: ${props => (props.home ? "calc(100vh - 4rem)" : "40vh")};
+  height: ${props => (props.full ? "calc(100vh - 4rem)" : "40vh")};
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -31,7 +31,7 @@ const StyledBackgroundImage = styled(BackgroundImage)`
   align-items: center;
   z-index: 0;
   @media (min-width: 577px) {
-    height: ${props => (props.home ? "100vh" : "40vh")};
+    height: ${props => (props.full ? "100vh" : "40vh")};
   }
 `
 

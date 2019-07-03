@@ -24,7 +24,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout footer="hide">
       <SEO title="Home" />
-      <HeroImage image={data.pageBackground.childImageSharp.fluid} home>
+      <HeroImage image={data.pageBackground.childImageSharp.fluid} full>
         <Banner>Welcome Home</Banner>
         <Button>Plan A Visit</Button>
       </HeroImage>
