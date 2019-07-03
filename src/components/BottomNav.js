@@ -30,7 +30,7 @@ const Navbar = styled.nav`
   background: white;
   display: flex;
   align-items: center;
-  @media (min-width: 662px) {
+  @media (min-width: 576px) {
     display: none;
   }
 `

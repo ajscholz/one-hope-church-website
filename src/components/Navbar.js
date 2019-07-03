@@ -4,11 +4,12 @@ import { links } from "../constants/Links"
 import { Link } from "gatsby"
 
 export default ({ siteTitle }) => {
+  const navLinks = links.slice(1)
   return (
     <Navbar>
       <Title>{siteTitle}</Title>
       <List>
-        {links.map(link => {
+        {navLinks.map(link => {
           return (
             <StyledLink as={Link} to={link.path} key={link}>
               {link.text}
@@ -20,18 +21,21 @@ export default ({ siteTitle }) => {
   )
 }
 
-const Title = styled.h1`
-  color: white;
+const Navbar = styled.nav`
+  display: none;
+  @media (min-width: 577px) {
+    height: 4rem;
+    width: 100vw;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem 0 2rem;
+  }
 `
 
-const Navbar = styled.nav`
-  height: 4rem;
-  width: 100vw;
-  background: transparent;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 2rem 0 2rem;
+const Title = styled.h1`
+  color: white;
 `
 
 const List = styled.ul`
@@ -41,4 +45,5 @@ const List = styled.ul`
 const StyledLink = styled.li`
   color: white;
   padding: 0.5rem;
+  font-weight: 300;
 `
