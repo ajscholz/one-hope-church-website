@@ -3,6 +3,7 @@ import styled from "styled-components"
 import BackgroundImage from "gatsby-background-image"
 
 const HeroImage = ({ className, image, children, home }) => {
+  console.log("hello")
   // adds overlay
   const backgroundFluidImageStack = [
     image,
@@ -24,6 +25,8 @@ const HeroImage = ({ className, image, children, home }) => {
 const StyledBackgroundImage = styled(BackgroundImage)`
   height: ${props => (props.home ? "100vh" : "40vh")};
   display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   z-index: -1;

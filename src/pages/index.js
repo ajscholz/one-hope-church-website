@@ -1,30 +1,40 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
+import styled from "styled-components"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 import HeroImage from "../components/HeroImage"
+import Button from "../components/Button"
 
 export const query = graphql`
   {
     pageBackground: file(name: { eq: "index-hero" }) {
       childImageSharp {
         fluid {
-          ...GatsbyImageSharpFluid
+          src
         }
       }
     }
   }
 `
 
-const IndexPage = ({ data }) => (
-  <Layout footer="hide">
-    <SEO title="Home" />
-    <HeroImage image={data.pageBackground.childImageSharp.fluid} home>
-      <h1>goodbye</h1>
-    </HeroImage>
-  </Layout>
-)
+const IndexPage = ({ data }) => {
+  console.log(data)
+  return (
+    <Layout footer="hide">
+      <SEO title="Home" />
+      <HeroImage image={data.pageBackground.childImageSharp.fluid} home>
+        <Banner>Welcome Home</Banner>
+        <Button>Plan A Visit</Button>
+      </HeroImage>
+    </Layout>
+  )
+}
+
+const Banner = styled.h1`
+  color: white;
+  font-size: 4rem;
+`
 
 export default IndexPage
