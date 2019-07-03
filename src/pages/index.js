@@ -1,11 +1,11 @@
 import React from "react"
 import { graphql } from "gatsby"
-import styled from "styled-components"
 
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 import HeroImage from "../components/HeroImage"
 import Button from "../components/Button"
+import Banner from "../components/Banner"
 
 export const query = graphql`
   {
@@ -20,7 +20,6 @@ export const query = graphql`
 `
 
 const IndexPage = ({ data }) => {
-  console.log(data)
   return (
     <Layout footer="hide">
       <SEO title="Home" />
@@ -31,12 +30,5 @@ const IndexPage = ({ data }) => {
     </Layout>
   )
 }
-
-const Banner = styled.h1`
-  padding: 0 3rem;
-  text-align: center;
-  color: white;
-  font-size: 4rem;
-`
 
 export default IndexPage
