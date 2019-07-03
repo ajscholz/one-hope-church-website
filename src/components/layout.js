@@ -13,6 +13,7 @@ import Navbar from "./Navbar"
 import GlobalStyles from "./GlobalStyles"
 import Footer from "./Footer"
 import styled from "styled-components"
+import BottomNav from "./BottomNav"
 
 const Layout = ({ children, footer }) => {
   const data = useStaticQuery(graphql`
@@ -29,6 +30,7 @@ const Layout = ({ children, footer }) => {
     <>
       <GlobalStyles />
       <Navbar siteTitle={data.site.siteMetadata.shortName} />
+      <BottomNav />
       <Main>{children}</Main>
       <Footer hide={footer}></Footer>
     </>

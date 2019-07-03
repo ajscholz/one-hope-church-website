@@ -9,9 +9,12 @@ export default () => {
       <List>
         {links.map(link => {
           return (
-            <StyledLink as={Link} to={link.path} key={link}>
-              {link.text}
-            </StyledLink>
+            <Container>
+              <Icon as={link.icon} />
+              <StyledLink as={Link} to={link.path} key={link}>
+                {link.text}
+              </StyledLink>
+            </Container>
           )
         })}
       </List>
@@ -27,6 +30,9 @@ const Navbar = styled.nav`
   background: white;
   display: flex;
   align-items: center;
+  @media (min-width: 662px) {
+    display: none;
+  }
 `
 
 const List = styled.ul`
@@ -37,10 +43,20 @@ const List = styled.ul`
   justify-content: space-evenly;
 `
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+const Icon = styled.div`
+  font-size: 1.1rem;
+`
+
 const StyledLink = styled.li`
   font-weight: 300;
   text-transform: capitalize;
   font-size: 0.8rem;
   color: black;
-  padding: 0.5rem;
+  margin-top: 0.3rem;
 `
