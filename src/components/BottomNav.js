@@ -9,7 +9,7 @@ export default () => {
       <List>
         {links.map(link => {
           return (
-            <StyledLink as={Link} to={link.path} key={link}>
+            <StyledLink as={Link} to={link.path} key={link.text}>
               <Icon as={link.icon} />
               {link.text}
             </StyledLink>

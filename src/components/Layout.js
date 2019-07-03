@@ -43,13 +43,15 @@ Layout.propTypes = {
 
 const Main = styled.main`
   margin: 0 auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  /* padding: 0px 1.0875rem 1.45rem; */
+  min-height: calc(100vh - 8rem);
   padding-top: 0;
   z-index: -1;
+  > :nth-child(even) {
+    background: #ededed;
+  }
+  @media (min-width: 577px) {
+    min-height: calc(100vh - 4rem);
+  }
 `
 
 export default Layout

@@ -3,12 +3,18 @@ import styled from "styled-components"
 import BackgroundImage from "gatsby-background-image"
 
 const HeroImage = ({ className, image, children, full }) => {
-  console.log("hello")
   // adds overlay
-  const backgroundFluidImageStack = [
-    image,
-    `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))`,
-  ].reverse()
+
+  const backgroundFluidImageStack =
+    full === true
+      ? [
+          image,
+          `linear-gradient(to bottom, rgba(15,15,15,.6), rgba(57,70,72,.6))`,
+        ].reverse()
+      : [
+          image,
+          `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))`,
+        ].reverse()
 
   return (
     <StyledBackgroundImage
