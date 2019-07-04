@@ -101,7 +101,7 @@ export default ({ className }) => {
 }
 
 const StyledForm = styled(Form)`
-  width: 60%;
+  width: 100%;
   max-width: 600px;
   margin: 0 auto;
   display: grid;
