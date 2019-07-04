@@ -11,6 +11,7 @@ import HeroImage from "../components/HeroImage"
 import Section from "../components/Section"
 import Banner from "../components/Banner"
 import Avatar from "../components/Avatar"
+import ContactForm from "../components/ContactForm"
 
 import { FaUmbrella } from "react-icons/fa"
 
@@ -164,6 +165,7 @@ const About = ({ data }) => {
 
       <Section>
         <h1>Contact</h1>
+        <ContactForm></ContactForm>
       </Section>
     </Layout>
   )
