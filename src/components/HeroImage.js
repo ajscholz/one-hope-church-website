@@ -29,7 +29,7 @@ const HeroImage = ({ className, image, children, full }) => {
 }
 
 const StyledBackgroundImage = styled(BackgroundImage)`
-  height: ${props => (props.full ? "calc(100vh - 4rem)" : "40vh")};
+  height: ${props => (props.full ? "100vh" : "40vh")};
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;

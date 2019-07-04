@@ -5,17 +5,21 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
+import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Navbar from "./Navbar"
 import GlobalStyles from "./GlobalStyles"
 import Footer from "./Footer"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import BottomNav from "./BottomNav"
 
-const Layout = ({ children, footer }) => {
+import { FaPlus } from "react-icons/fa"
+
+const Layout = ({ children, footer, minimal }) => {
+  const [open, toggleOpen] = useState(!minimal)
+
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -29,9 +33,16 @@ const Layout = ({ children, footer }) => {
   return (
     <>
       <GlobalStyles />
-      <Navbar siteTitle={data.site.siteMetadata.shortName} />
-      <BottomNav />
-      <Main>{children}</Main>
+      <Navbar siteTitle={data.site.siteMetadata.shortName} open={open} />
+      <BottomNav open={open} />
+      <Main open={open}>
+        {children}{" "}
+        {minimal && (
+          <ToggleNav onClick={() => toggleOpen(!open)}>
+            <StyledIcon open={open}></StyledIcon>
+          </ToggleNav>
+        )}
+      </Main>
       <Footer hide={footer}></Footer>
     </>
   )
@@ -46,12 +57,47 @@ const Main = styled.main`
   min-height: calc(100vh - 8rem);
   padding-top: 0;
   z-index: -1;
-  > :nth-child(even) {
-    background: #ededed;
+  transition: all 0.3s ease-in;
+  @media (max-width: 576px) {
+    ${props =>
+      props.open === true &&
+      css`
+        transform: translateY(-4rem);
+      `}
   }
   @media (min-width: 577px) {
     min-height: calc(100vh - 4rem);
   }
+`
+
+const ToggleNav = styled.button`
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  background: none;
+  color: rgba(211, 211, 211, 0.8);
+  font-size: 3rem;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  align-items: center;
+`
+const StyledIcon = styled(FaPlus)`
+  transition: all 0.3s ease-in;
+
+  animation: plusSign 0.5s ease-in-out 0s infinite alternate;
+  @keyframes plusSign {
+    from {
+      color: darkgrey;
+    }
+    to {
+      color: lightgrey;
+    }
+  }
+  transform: ${props => props.open && "rotate(-45deg)"};
 `
 
 export default Layout

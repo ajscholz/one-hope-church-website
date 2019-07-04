@@ -21,7 +21,7 @@ export const query = graphql`
 
 const IndexPage = ({ data }) => {
   return (
-    <Layout footer="hide">
+    <Layout footer="hide" minimal={true}>
       <SEO title="Home" />
       <HeroImage image={data.pageBackground.childImageSharp.fluid} full>
         <Banner>Welcome Home</Banner>

@@ -1,11 +1,11 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { links } from "../constants/Links"
 import { Link } from "gatsby"
 
-export default () => {
+export default ({ open }) => {
   return (
-    <Navbar>
+    <Navbar open={open}>
       <List>
         {links.map(link => {
           return (
@@ -29,9 +29,13 @@ const Navbar = styled.nav`
   display: flex;
   align-items: center;
   z-index: 1;
+  transition: all 0.3s ease-in;
   @media (min-width: 576px) {
     display: none;
   }
+  /* display: ${props => !props.minimal && "none"}; */
+
+  transform: ${props => !props.open && "translateY(4rem)"};
 `
 
 const List = styled.ul`
