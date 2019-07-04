@@ -12,6 +12,7 @@ import Section from "../components/Section"
 import Banner from "../components/Banner"
 import Avatar from "../components/Avatar"
 import ContactForm from "../components/ContactForm"
+import Title from "../components/Title"
 
 import { FaUmbrella } from "react-icons/fa"
 
@@ -81,7 +82,7 @@ const About = ({ data }) => {
         <H2>Welcome Home</H2>
       </Section>
       <Section>
-        <h1>Values</h1>
+        <Title>Our Values</Title>
         <Container>
           <Icon as={FaUmbrella}></Icon>
           <Heading>Better Together</Heading>
@@ -111,7 +112,7 @@ const About = ({ data }) => {
       </StoryBackground>
 
       <Section>
-        <h1>Team</h1>
+        <Title>Our Team</Title>
         <TeamContainer>
           <Avatar
             image={data.geri.childImageSharp.fluid}
@@ -131,11 +132,11 @@ const About = ({ data }) => {
         </TeamContainer>
       </Section>
       <Section>
-        <h1>Pastor</h1>
+        <Title>Pastor</Title>
       </Section>
 
       <Section>
-        <h1>Location</h1>
+        <Title>Location</Title>
         <Header>Address</Header>
         <Address>
           1389 E. Cooke Rd., <br />
@@ -164,7 +165,7 @@ const About = ({ data }) => {
       </Section>
 
       <Section>
-        <h1>Contact</h1>
+        <Title>Contact Us</Title>
         <ContactForm></ContactForm>
       </Section>
     </Layout>
