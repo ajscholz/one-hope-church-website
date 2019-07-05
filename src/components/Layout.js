@@ -91,10 +91,10 @@ const StyledIcon = styled(FaPlus)`
   animation: plusSign 0.5s ease-in-out 0s infinite alternate;
   @keyframes plusSign {
     from {
-      color: darkgrey;
+      color: lightgray;
     }
     to {
-      color: lightgrey;
+      color: white;
     }
   }
   transform: ${props => props.open && "rotate(-45deg)"};

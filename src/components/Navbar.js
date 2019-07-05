@@ -18,14 +18,13 @@ const logo = graphql`
 
 export default ({ open }) => {
   const image = useStaticQuery(logo)
-  const navLinks = links.slice(1)
   return (
     <Navbar>
       <Link to="/">
         <StyledImg fluid={image.file.childImageSharp.fluid} open={open} />
       </Link>
       <List open={open}>
-        {navLinks.map(link => {
+        {links.map(link => {
           return (
             <StyledLink as={Link} to={link.path} key={link.text}>
               {link.text}
@@ -38,34 +37,33 @@ export default ({ open }) => {
 }
 
 const Navbar = styled.nav`
-  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  padding: 2rem;
+  z-index: 10;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  height: 7rem;
   overflow: hidden;
-  @media (min-width: 577px) {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 7rem;
-    width: 100vw;
-    background: transparent;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem;
-    z-index: 10;
-  }
+  align-items: center;
 `
 
 const StyledImg = styled(Img)`
   height: 5rem;
   width: 12rem;
-  transition: all 0.3s ease-in;
-  transform: ${props => !props.open && "translateX(35vw)"};
 `
 
 const List = styled.ul`
-  list-style: none;
-  transition: all 0.3s ease-in;
-  transform: ${props => !props.open && "translateX(40vw)"};
+  display: none;
+  @media (min-width: 577px) {
+    display: block;
+    list-style: none;
+    transition: all 0.3s ease-in;
+    transform: ${props => !props.open && "translateX(100%)"};
+  }
 `
 
 const StyledLink = styled.li`

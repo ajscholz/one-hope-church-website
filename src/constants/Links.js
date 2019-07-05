@@ -1,5 +1,4 @@
 import {
-  FaHome,
   FaMapMarkerAlt,
   FaDonate,
   FaQuestion,
@@ -7,11 +6,6 @@ import {
 } from "react-icons/fa"
 
 export const links = [
-  {
-    path: "/",
-    text: "home",
-    icon: FaHome,
-  },
   {
     path: "/about",
     text: "about",
