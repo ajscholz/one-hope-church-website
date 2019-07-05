@@ -16,7 +16,7 @@ const TeamContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 300px;
+  width: 250px;
   text-align: center;
   margin: 0 1rem 3rem 1rem;
   &:last-of-type {

@@ -53,6 +53,13 @@ export const query = graphql`
         }
       }
     }
+    felipe: file(name: { eq: "team-felipe" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
   }
 `
 
@@ -132,7 +139,22 @@ const About = ({ data }) => {
         </TeamContainer>
       </Section>
       <Section>
-        <Title>Pastor</Title>
+        <Title>Our Pastor</Title>
+        <PastorContainer>
+          <Avatar
+            image={data.felipe.childImageSharp.fluid}
+            name="Felipe Ferreira"
+            title="Lead Pastor"
+          />
+          <PastorDescription>
+            <p>
+              {`Pastor Felipe has been lead pastor at One Hope Community since 2018 but has been serving here for the past 7 years in the areas of worship & arts, children's ministry, church-planting and discipleship. He has a passion for seeing people come together and finding unity in the midst of brokenness and division. Pastor Felipe attended Mount Vernon Nazarene University and is currently studying at Fuller Theological Seminary.`}
+            </p>
+            <p>
+              {`A native of Brazil, he now calls Columbus home and roots for the Columbus Crew.  He is married to Érika, a nutritionist by training, but also a Sunday school teacher and worship leader. They have one child, Jonathan.`}
+            </p>
+          </PastorDescription>
+        </PastorContainer>
       </Section>
 
       <Section>
@@ -235,6 +257,24 @@ const TeamContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+`
+
+const PastorContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+  margin: 0 auto;
+`
+
+const PastorDescription = styled.div`
+  color: black;
+  font-size: 0.9rem;
+  font-weight: 300;
+  margin: 0;
+  > p:first-of-type {
+    margin-top: -1rem;
+  }
 `
 
 const Address = styled(StoryDescription)`
