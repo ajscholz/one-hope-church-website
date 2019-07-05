@@ -13,8 +13,9 @@ import Banner from "../components/Banner"
 import Avatar from "../components/Avatar"
 import ContactForm from "../components/ContactForm"
 import Title from "../components/Title"
+import IconInfo from "../components/IconInfo"
 
-import { FaUmbrella } from "react-icons/fa"
+import { FaUmbrella, FaCross, FaUsers } from "react-icons/fa"
 
 export const query = graphql`
   {
@@ -90,19 +91,15 @@ const About = ({ data }) => {
       </Section>
       <Section>
         <Title>Our Values</Title>
-        <Container>
-          <Icon as={FaUmbrella}></Icon>
-          <Heading>Better Together</Heading>
-          <Description>
-            We were made for <Emphasized>authentic relationships</Emphasized>{" "}
-            because someday in your life it will rain, and nobody should be
-            stuck outside without an <Emphasized>umbrella.</Emphasized>
-          </Description>
-        </Container>
+        <ValuesContainer>
+          <IconInfo icon={FaUmbrella} color="#69995D" title="Better Together" text={`We were made for authentic relationships because someday in your life it will rain, and nobody should be stuck outside without an umbrella.`} />
+          <IconInfo icon={FaUsers} color="#CBAC88" title="Never Alone" text={` No one’s life is perfect, but when we embrace the journey together we can support each other, experience wholeness and ultimately find our purpose in Jesus.`}/>
+          <IconInfo icon={FaCross} color="#F8820D" title="All for Jesus" text={`We are constantly working toward the common good of our city and world by making Jesus famous by the way we love and serve our neighbors.`} />
+        </ValuesContainer>
       </Section>
 
       <StoryBackground fluid={storyBackgroundImageStack}>
-        <Header>Our Story</Header>
+        <Header as={Title}>Our Story</Header>
         <StoryDescription>
           We are a church that was started over 6 years ago by the South Central
           Ohio District Church of the Nazarene.­ From the beginning we have
@@ -205,31 +202,10 @@ const H2 = styled.h2`
   font-size: 2rem;
 `
 
-const Container = styled.div`
+const ValuesContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: flex-start;
-  text-align: center;
-  padding: 1rem;
-  color: darkslategrey;
-`
-
-const Icon = styled.svg`
-  font-size: 3rem;
-`
-
-const Heading = styled.h4`
-  margin: 1rem;
-  text-transform: uppercase;
-  font-size: 1.2rem;
-`
-
-const Description = styled.p`
-  font-weight: 300;
-  line-height: 1.25em;
-  margin: 0;
+  justify-content: center;
+  flex-wrap: wrap;
 `
 
 const Emphasized = styled.span`
@@ -244,7 +220,7 @@ const StoryBackground = styled(BackgroundImage)`
 
 const Header = styled.h3`
   color: #f8820d;
-  font-size: 1.5rem;
+
 `
 
 const StoryDescription = styled.p`
