@@ -20,7 +20,7 @@ export default ({ hide }) => {
 const Footer = styled.footer`
   margin-bottom: 4rem;
   margin-top: auto;
-  background: black;
+  background: var(--blue);
   color: white;
   width: 100vw;
   height: 4rem;
@@ -29,7 +29,7 @@ const Footer = styled.footer`
   align-items: center;
   & a:visited,
   a:active {
-    color: gray;
+    color: var(--lightGray);
   }
   @media (min-width: 577px) {
     margin-bottom: 0;

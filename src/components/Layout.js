@@ -57,6 +57,7 @@ const Main = styled.main`
   min-height: calc(100vh - 8rem);
   padding-top: 0;
   z-index: -1;
+<<<<<<< HEAD
   transition: all 0.3s ease-in;
   @media (max-width: 576px) {
     ${props =>
@@ -64,6 +65,10 @@ const Main = styled.main`
       css`
         transform: translateY(-4rem);
       `}
+=======
+  > :nth-child(even) {
+    background: var(--lightGray);
+>>>>>>> @{-1}
   }
   @media (min-width: 577px) {
     min-height: calc(100vh - 4rem);

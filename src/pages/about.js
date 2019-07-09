@@ -92,9 +92,24 @@ const About = ({ data }) => {
       <Section>
         <Title>Our Values</Title>
         <ValuesContainer>
-          <IconInfo icon={FaUmbrella} color="#69995D" title="Better Together" text={`We were made for authentic relationships because someday in your life it will rain, and nobody should be stuck outside without an umbrella.`} />
-          <IconInfo icon={FaUsers} color="#CBAC88" title="Never Alone" text={` No one’s life is perfect, but when we embrace the journey together we can support each other, experience wholeness and ultimately find our purpose in Jesus.`}/>
-          <IconInfo icon={FaCross} color="#F8820D" title="All for Jesus" text={`We are constantly working toward the common good of our city and world by making Jesus famous by the way we love and serve our neighbors.`} />
+          <IconInfo
+            icon={FaUmbrella}
+            color="#69995D"
+            title="Better Together"
+            text={`We were made for authentic relationships because someday in your life it will rain, and nobody should be stuck outside without an umbrella.`}
+          />
+          <IconInfo
+            icon={FaUsers}
+            color="#CBAC88"
+            title="Never Alone"
+            text={` No one’s life is perfect, but when we embrace the journey together we can support each other, experience wholeness and ultimately find our purpose in Jesus.`}
+          />
+          <IconInfo
+            icon={FaCross}
+            color="#F8820D"
+            title="All for Jesus"
+            text={`We are constantly working toward the common good of our city and world by making Jesus famous by the way we love and serve our neighbors.`}
+          />
         </ValuesContainer>
       </Section>
 
@@ -192,7 +207,7 @@ const About = ({ data }) => {
 }
 
 const Vision = styled.h3`
-  color: #f8820d;
+  color: var(--primary);
   font-style: italic;
   text-align: center;
 `
@@ -204,8 +219,28 @@ const H2 = styled.h2`
 
 const ValuesContainer = styled.div`
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  padding: 1rem;
+`
+
+const Icon = styled.svg`
+  font-size: 3rem;
+`
+
+const Heading = styled.h4`
+  margin: 1rem;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+`
+
+const Description = styled.p`
+  font-weight: 300;
+  line-height: 1.25em;
+  margin: 0;
 `
 
 const Emphasized = styled.span`
@@ -219,8 +254,8 @@ const StoryBackground = styled(BackgroundImage)`
 `
 
 const Header = styled.h3`
-  color: #f8820d;
-
+  color: var(--primary);
+  font-size: 1.5rem;
 `
 
 const StoryDescription = styled.p`
@@ -254,11 +289,11 @@ const PastorDescription = styled.div`
 `
 
 const Address = styled(StoryDescription)`
-  color: darkslategray;
+  color: initial;
 `
 
 const ServiceTime = styled(StoryDescription)`
-  color: darkslategray;
+  color: initial;
 `
 
 export default About

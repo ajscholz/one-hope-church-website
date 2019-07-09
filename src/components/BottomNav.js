@@ -54,7 +54,7 @@ const StyledLink = styled.li`
   font-weight: 300;
   text-transform: capitalize;
   font-size: 0.8rem;
-  color: black;
+  color: var(--blue);
   display: flex;
   flex-direction: column;
   align-items: center;
