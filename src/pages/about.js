@@ -119,7 +119,7 @@ const About = ({ data }) => {
 }
 
 const Vision = styled.h3`
-  color: #f8820d;
+  color: var(--primary);
   font-style: italic;
   text-align: center;
 `
@@ -137,7 +137,6 @@ const Container = styled.div`
   justify-content: flex-start;
   text-align: center;
   padding: 1rem;
-  color: darkslategrey;
 `
 
 const Icon = styled.svg`
@@ -167,7 +166,7 @@ const StoryBackground = styled(BackgroundImage)`
 `
 
 const Header = styled.h3`
-  color: #f8820d;
+  color: var(--primary);
   font-size: 1.5rem;
 `
 
@@ -190,23 +189,22 @@ const Avatar = styled(Img)`
 
 const Name = styled.h5`
   margin: 2rem auto 0.5rem auto;
-  color: #f8820d;
+  color: var(--primary);
   font-size: 2rem;
 `
 
 const JobTitle = styled.h6`
   margin: 0;
-  color: darkslategray;
   font-size: 0.8rem;
   font-weight: 300;
 `
 
 const Address = styled(StoryDescription)`
-  color: darkslategray;
+  color: initial;
 `
 
 const ServiceTime = styled(StoryDescription)`
-  color: darkslategray;
+  color: initial;
 `
 
 export default About

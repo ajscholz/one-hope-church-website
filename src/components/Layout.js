@@ -47,7 +47,7 @@ const Main = styled.main`
   padding-top: 0;
   z-index: -1;
   > :nth-child(even) {
-    background: #ededed;
+    background: var(--lightGray);
   }
   @media (min-width: 577px) {
     min-height: calc(100vh - 4rem);
