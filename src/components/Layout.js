@@ -17,7 +17,7 @@ import BottomNav from "./BottomNav"
 
 import { FaPlus } from "react-icons/fa"
 
-const Layout = ({ children, footer, minimal }) => {
+export default ({ children, footer, minimal }) => {
   const [open, toggleOpen] = useState(!minimal)
 
   const data = useStaticQuery(graphql`
@@ -31,7 +31,7 @@ const Layout = ({ children, footer, minimal }) => {
   `)
 
   return (
-    <>
+    <Layout>
       <GlobalStyles />
       <Navbar siteTitle={data.site.siteMetadata.shortName} open={open} />
       <BottomNav open={open} />
@@ -44,7 +44,7 @@ const Layout = ({ children, footer, minimal }) => {
         )}
       </Main>
       <Footer hide={footer}></Footer>
-    </>
+    </Layout>
   )
 }
 
@@ -52,24 +52,25 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
+const Layout = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
 const Main = styled.main`
   margin: 0 auto;
   min-height: calc(100vh - 8rem);
   padding-top: 0;
   z-index: -1;
-<<<<<<< HEAD
   transition: all 0.3s ease-in;
-  @media (max-width: 576px) {
+  flex-grow: 1;
+  /* @media (max-width: 576px) {
     ${props =>
       props.open === true &&
       css`
         transform: translateY(-4rem);
       `}
-=======
-  > :nth-child(even) {
-    background: var(--lightGray);
->>>>>>> @{-1}
-  }
+  } */
   @media (min-width: 577px) {
     min-height: calc(100vh - 4rem);
   }
@@ -104,5 +105,3 @@ const StyledIcon = styled(FaPlus)`
   }
   transform: ${props => props.open && "rotate(-45deg)"};
 `
-
-export default Layout
