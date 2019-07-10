@@ -1,5 +1,5 @@
 import React from "react"
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import { links } from "../constants/Links"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"

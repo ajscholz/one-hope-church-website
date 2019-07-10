@@ -227,27 +227,6 @@ const ValuesContainer = styled.div`
   padding: 1rem;
 `
 
-const Icon = styled.svg`
-  font-size: 3rem;
-`
-
-const Heading = styled.h4`
-  margin: 1rem;
-  text-transform: uppercase;
-  font-size: 1.2rem;
-`
-
-const Description = styled.p`
-  font-weight: 300;
-  line-height: 1.25em;
-  margin: 0;
-`
-
-const Emphasized = styled.span`
-  font-weight: bold;
-  font-style: italic;
-`
-
 const StoryBackground = styled(BackgroundImage)`
   padding: 4rem 10vw;
   text-align: center;
