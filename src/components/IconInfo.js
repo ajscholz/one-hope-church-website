@@ -6,9 +6,7 @@ export default ({ icon, color, title, text }) => {
     <Container>
       <Icon as={icon} color={color}></Icon>
       <Heading>{title}</Heading>
-      <Description>
-        {text}
-      </Description>
+      <Description>{text}</Description>
     </Container>
   )
 }
@@ -23,12 +21,12 @@ const Container = styled.div`
   padding: 1rem;
   color: darkslategrey;
   width: 300px;
-  margin: 0 1rem;
+  margin: 0 1rem 1rem 1rem;
 `
 
 const Icon = styled.svg`
   font-size: 3rem;
-  color: ${props => props.color}
+  color: ${props => props.color};
 `
 
 const Heading = styled.h4`

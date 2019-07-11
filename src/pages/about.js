@@ -2,20 +2,22 @@ import React from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
 import BackgroundImage from "gatsby-background-image"
+import Img from "gatsby-image"
 
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api"
+import { FaUmbrella, FaCross, FaUsers } from "react-icons/fa"
 
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 import HeroImage from "../components/HeroImage"
 import Section from "../components/Section"
 import Banner from "../components/Banner"
-import Avatar from "../components/Avatar"
+import TeamCard from "../components/TeamCard"
 import ContactForm from "../components/ContactForm"
 import Title from "../components/Title"
 import IconInfo from "../components/IconInfo"
 
-import { FaUmbrella, FaCross, FaUsers } from "react-icons/fa"
+import staff from "../utils/staff"
 
 export const query = graphql`
   {
@@ -33,7 +35,7 @@ export const query = graphql`
         }
       }
     }
-    geri: file(name: { eq: "team-geri" }) {
+    gerri: file(name: { eq: "team-geri" }) {
       childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid
@@ -73,6 +75,11 @@ const About = ({ data }) => {
     data.story.childImageSharp.fluid,
     `linear-gradient(120deg, rgba(57, 70, 72, .8), rgba(57,70,72,.8))`,
   ].reverse()
+
+  // creates new array for team members without felipe
+  const teamMembers = (({ pastor, ...staff }) => ({ ...staff }))(staff)
+  const { pastor } = staff
+
   return (
     <Layout>
       <SEO title="About" />
@@ -80,16 +87,30 @@ const About = ({ data }) => {
         <Banner>About</Banner>
       </HeroImage>
       <Section>
-        <Vision>We are multicultural</Vision>
-        <Vision>We are intergenerational</Vision>
-        <Vision>We are missional</Vision>
-        <Vision>We are creating culture</Vision>
-        <Vision>We are redeeming vocations</Vision>
-        <Vision>We are restoring brokenness in Columbus</Vision>
-        <Vision>We are One Hope Church</Vision>
+        <Vision>
+          We are <VisionEmph>multicultural</VisionEmph>
+        </Vision>
+        <Vision>
+          We are <VisionEmph>intergenerational</VisionEmph>
+        </Vision>
+        <Vision>
+          We are <VisionEmph>missional</VisionEmph>
+        </Vision>
+        <Vision>
+          We are <VisionEmph>creating culture</VisionEmph>
+        </Vision>
+        <Vision>
+          We are <VisionEmph>redeeming vocations</VisionEmph>
+        </Vision>
+        <Vision>
+          We are <VisionEmph>restoring brokenness</VisionEmph> in Columbus
+        </Vision>
+        <Vision>
+          We are <VisionEmph>One Hope Church</VisionEmph>
+        </Vision>
         <H2>Welcome Home</H2>
       </Section>
-      <Section>
+      <ValuesSection>
         <Title>Our Values</Title>
         <ValuesContainer>
           <IconInfo
@@ -111,7 +132,7 @@ const About = ({ data }) => {
             text={`We are constantly working toward the common good of our city and world by making Jesus famous by the way we love and serve our neighbors.`}
           />
         </ValuesContainer>
-      </Section>
+      </ValuesSection>
 
       <StoryBackground fluid={storyBackgroundImageStack}>
         <Header as={Title}>Our Story</Header>
@@ -130,42 +151,33 @@ const About = ({ data }) => {
         </StoryDescription>
       </StoryBackground>
 
-      <Section>
+      <TeamSection>
         <Title>Our Team</Title>
         <TeamContainer>
-          <Avatar
-            image={data.geri.childImageSharp.fluid}
-            name="Gerri Nugent"
-            title="Finance and Prime Time Pastor"
-          />
-          <Avatar
-            image={data.jennifer.childImageSharp.fluid}
-            name="Jennifer Schrappe"
-            title="Worship Pastor"
-          />
-          <Avatar
-            image={data.janet.childImageSharp.fluid}
-            name="Janet Walker"
-            title="Outreach Pastor"
-          />
+          {Object.keys(teamMembers).map(key => {
+            return (
+              <TeamCard
+                key={key}
+                name={staff[key].name}
+                jobTitle={staff[key].title}
+                image={data[key].childImageSharp.fluid}
+              />
+            )
+          })}
         </TeamContainer>
-      </Section>
+      </TeamSection>
       <Section>
         <Title>Our Pastor</Title>
         <PastorContainer>
-          <Avatar
-            image={data.felipe.childImageSharp.fluid}
-            name="Felipe Ferreira"
-            title="Lead Pastor"
-          />
-          <PastorDescription>
-            <p>
-              {`Pastor Felipe has been lead pastor at One Hope Community since 2018 but has been serving here for the past 7 years in the areas of worship & arts, children's ministry, church-planting and discipleship. He has a passion for seeing people come together and finding unity in the midst of brokenness and division. Pastor Felipe attended Mount Vernon Nazarene University and is currently studying at Fuller Theological Seminary.`}
-            </p>
-            <p>
-              {`A native of Brazil, he now calls Columbus home and roots for the Columbus Crew.  He is married to Érika, a nutritionist by training, but also a Sunday school teacher and worship leader. They have one child, Jonathan.`}
-            </p>
-          </PastorDescription>
+          <Avatar fluid={data.felipe.childImageSharp.fluid} />
+          <PastorInfo>
+            <PastorName>{pastor.name}</PastorName>
+            <PastorDescription>
+              {pastor.description.map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
+            </PastorDescription>
+          </PastorInfo>
         </PastorContainer>
       </Section>
 
@@ -207,9 +219,12 @@ const About = ({ data }) => {
 }
 
 const Vision = styled.h3`
+  text-align: center;
+`
+
+const VisionEmph = styled.span`
   color: var(--primary);
   font-style: italic;
-  text-align: center;
 `
 
 const H2 = styled.h2`
@@ -217,14 +232,17 @@ const H2 = styled.h2`
   font-size: 2rem;
 `
 
+const ValuesSection = styled(Section)`
+  padding: 4rem 2.5vw 3rem 2.5vw;
+`
+
 const ValuesContainer = styled.div`
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
   text-align: center;
-  padding: 1rem;
 `
 
 const StoryBackground = styled(BackgroundImage)`
@@ -242,29 +260,66 @@ const StoryDescription = styled.p`
   color: white;
 `
 
+const TeamSection = styled(Section)`
+  padding-bottom: 2.5rem;
+`
+
 const TeamContainer = styled.div`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  align-items: flex-start;
 `
 
 const PastorContainer = styled.div`
+  width: 100%;
+  margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 500px;
-  margin: 0 auto;
+  max-width: 800px;
+  @media (min-width: 762px) {
+    flex-direction: row;
+    justify-content: center;
+  }
 `
 
-const PastorDescription = styled.div`
-  color: black;
-  font-size: 0.9rem;
-  font-weight: 300;
-  margin: 0;
-  > p:first-of-type {
-    margin-top: -1rem;
+const Avatar = styled(Img)`
+  width: 100%;
+  border-radius: 50%;
+  margin: 0 0 2rem 0;
+  @media (max-width: 762px) {
+    min-width: 225px;
+    max-width: 325px;
+    flex-grow: 1;
   }
+
+  @media (min-width: 661px) {
+    min-width: 225px;
+    width: 225px;
+    flex-grow: unset;
+    margin: 0 2rem 0 0;
+  }
+`
+
+const PastorInfo = styled.div`
+  flex-shrink: 1;
+  text-align: center;
+  @media (min-width: 661px) {
+    text-align: left;
+  }
+`
+
+const PastorName = styled.h4`
+  color: var(--primary);
+  margin: 0;
+  font-size: 1.5rem;
+`
+
+const PastorDescription = styled.p`
+  margin-bottom: 0;
+  font-size: 0.85rem;
 `
 
 const Address = styled(StoryDescription)`

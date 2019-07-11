@@ -30,6 +30,8 @@ const Navbar = styled.nav`
   align-items: center;
   z-index: 1;
   transition: all 0.3s ease-in;
+  /* border-top: 1px solid var(--blue); */
+  box-shadow: 1px 0px 8px;
   @media (min-width: 576px) {
     display: none;
   }

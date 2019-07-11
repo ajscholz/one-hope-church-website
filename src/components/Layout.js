@@ -48,10 +48,6 @@ export default ({ children, footer, minimal }) => {
   )
 }
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
-
 const Layout = styled.div`
   display: flex;
   flex-direction: column;
