@@ -38,7 +38,7 @@ const Navbar = styled.nav`
   }
   /* display: ${props => !props.minimal && "none"}; */
 
-  transform: ${props => !props.open && "translateY(4rem)"};
+  /* transform: ${props => !props.open && "translateY(4rem)"}; */
 `
 
 const List = styled.ul`
