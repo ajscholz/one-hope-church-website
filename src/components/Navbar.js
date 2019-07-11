@@ -23,7 +23,8 @@ export default ({ open }) => {
       <Link to="/">
         <StyledImg fluid={image.file.childImageSharp.fluid} open={open} />
       </Link>
-      <List open={open}>
+      {/* <List open={open}> */}
+      <List>
         {links.map(link => {
           return (
             <StyledLink as={Link} to={link.path} key={link.text}>
@@ -62,7 +63,7 @@ const List = styled.ul`
     display: block;
     list-style: none;
     transition: all 0.3s ease-in;
-    transform: ${props => !props.open && "translateX(100%)"};
+    /* transform: ${props => !props.open && "translateX(100%)"}; */
   }
 `
 

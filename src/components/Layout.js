@@ -54,7 +54,7 @@ const Layout = styled.div`
 `
 
 const Main = styled.main`
-  margin: 0 auto;
+
   min-height: calc(100vh - 8rem);
   padding-top: 0;
   z-index: -1;

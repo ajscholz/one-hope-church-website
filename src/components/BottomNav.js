@@ -5,7 +5,8 @@ import { Link } from "gatsby"
 
 export default ({ open }) => {
   return (
-    <Navbar open={open}>
+    // <Navbar open={open}>
+    <Navbar>
       <List>
         {links.map(link => {
           return (
