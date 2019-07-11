@@ -22,7 +22,7 @@ export const links = [
     icon: FaMapMarkerAlt,
   },
   {
-    path: "/give",
+    path: "https://secure.egsnetwork.com/donate/6003CB95A26C463",
     text: "give",
     icon: FaDonate,
   },

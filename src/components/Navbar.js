@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { links } from "../constants/Links"
+import { links } from "../utils/Links"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 
@@ -26,7 +26,17 @@ export default ({ open }) => {
       {/* <List open={open}> */}
       <List>
         {links.map(link => {
-          return (
+          return link.text === "give" ? (
+            <StyledLink
+              as="a"
+              href={link.path}
+              key={link.text}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {link.text}
+            </StyledLink>
+          ) : (
             <StyledLink as={Link} to={link.path} key={link.text}>
               {link.text}
             </StyledLink>
