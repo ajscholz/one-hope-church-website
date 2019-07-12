@@ -30,35 +30,16 @@ const StyledAccordion = styled(Accordion)`
   max-width: 600px;
 `
 
-const StyledAccordionItem = styled(AccordionItem)`
-  width: 100%;
-  height: auto;
-  margin: 0.5rem 0 0.5rem 0;
-  border: 2px solid var(--primaryLight);
-  border-radius: 28px;
-  overflow: hidden;
-  position: relative;
-  background: var(--primaryLight);
-  display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: auto auto;
-  transition: all 0.3s;
-  ${Question}:hover {
-    background: var(--primary);
-  }
-  ${Question}:focus {
-    background: var(--primary);
-  }
-`
-
 const Question = styled(AccordionItemButton)`
   padding: 1rem 2rem;
-  background: transparent;
+  background: var(--primaryLight);
   display: flex;
   align-items: center;
-  transition: all 0.3s;
   z-index: 5;
   outline: none;
+  border: 2px solid var(--primaryLight);
+  border-radius: 24px;
+  transition: var(--mainTransition);
   &::before {
     content: "";
     position: relative;
@@ -78,14 +59,24 @@ const Question = styled(AccordionItemButton)`
   }
   &:hover {
     cursor: pointer;
+    background: var(--primary);
     border: 2px solid var(--primary);
   }
   &:focus {
+    background: var(--primary);
     border: 2px solid var(--primary);
   }
 `
 
+const StyledAccordionItem = styled(AccordionItem)`
+  width: 100%;
+  height: auto;
+  margin: 0.5rem 0 0.5rem 0;
+`
+
 const Answer = styled(AccordionItemPanel)`
+  font-size: 0.8rem;
   padding: 1rem 2rem;
   transition: all 0.3s;
+  padding-left: 3.2rem;
 `

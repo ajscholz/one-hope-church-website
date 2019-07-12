@@ -6,4 +6,5 @@ export default styled.h2`
   font-weight: bold;
   width: 100%;
   text-align: center;
+  line-height: initial;
 `

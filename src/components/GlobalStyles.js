@@ -31,12 +31,15 @@ export default createGlobalStyle`
     rgba(203, 172, 136, 1);
     */
     --lightGray: #ededed;
+
+    --mainTransition: all .3s ease;
   }
   * {
     font-family: "Raleway";
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
     box-sizing: border-box;
+    line-height: 1.15rem;
 
   }
   body {
@@ -48,4 +51,5 @@ export default createGlobalStyle`
   a {
     text-decoration: none;
   }
+  p
 `

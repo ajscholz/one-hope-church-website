@@ -5,4 +5,5 @@ export default styled.h1`
   text-align: center;
   color: white;
   font-size: 4rem;
+  line-height: initial;
 `
