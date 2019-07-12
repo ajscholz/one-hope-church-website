@@ -34,8 +34,9 @@ export default ({ visible, path }) => {
 const Navbar = styled.nav`
   position: fixed;
   bottom: ${props => (props.visible ? "0" : "-5rem")};
-  height: 4rem;
+  height: 3.5rem;
   width: 100vw;
+  padding: 0 10vw;
   background: white;
   display: flex;
   align-items: center;
@@ -65,20 +66,26 @@ const Navbar = styled.nav`
 
 const List = styled.ul`
   width: 100%;
+  position: relative;
+  top: 2px;
   list-style: none;
   padding-inline-start: 0;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
 `
 const Icon = styled.div`
-  font-size: 1.1rem;
-  margin-bottom: 0.3rem;
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
 `
 
 const StyledLink = styled(Link)`
+  /* keeps nav items evenly spaced despite "next steps" being longer */
+  width: 20px;
+  white-space: nowrap;
+  /*  */
   font-weight: 300;
   text-transform: capitalize;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: var(--blue);
   display: flex;
   flex-direction: column;

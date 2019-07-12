@@ -24,10 +24,9 @@ export default ({ className }) => {
   return (
     <Formik
       initialValues={{
-        name: "Michael S.",
-        email: "mgscott@dundermifflininfinity.com",
-        message:
-          "Hi, I'm Prison Mike. You should know, don't go to prison. You have to eat the gruel.",
+        name: "",
+        email: "",
+        message: "",
       }}
       validationSchema={ContactSchema}
       onSubmit={(values, { setSubmitting }) => {
@@ -47,7 +46,6 @@ export default ({ className }) => {
               error={errors.name}
               className={className}
             />
-            {/* <Outline></Outline> */}
             <StyledErrorMessage
               name="name"
               component="div"
@@ -62,7 +60,6 @@ export default ({ className }) => {
               error={errors.email}
               className={className}
             />
-            {/* <Outline></Outline> */}
             <StyledErrorMessage
               name="email"
               component="div"
@@ -78,7 +75,6 @@ export default ({ className }) => {
               error={errors.message}
               className={className}
             ></StyledField>
-            {/* <Outline></Outline> */}
             <StyledErrorMessage
               name="message"
               component="div"
@@ -150,23 +146,6 @@ const StyledErrorMessage = styled(ErrorMessage)`
   justify-self: flex-end;
   align-self: flex-end;
 `
-
-// const Outline = styled.div`
-//   position: absolute;
-//   height: 100%;
-//   width: 100%;
-//   opacity: 0;
-//   display: none;
-//   border: 3px solid #f8820d;
-//   border-radius: 6px;
-//   transition: all 3s ease-in;
-
-//   ${StyledField}:focus ~ & {
-//     opacity: 1;
-//     z-index: 1;
-//     display: block;
-//   }
-// `
 
 const StyledButton = styled(Button)`
   outline: none;

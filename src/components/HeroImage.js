@@ -13,7 +13,7 @@ const HeroImage = ({ className, image, children, full }) => {
         ].reverse()
       : [
           image,
-          `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))`,
+          `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6))`,
         ].reverse()
 
   return (
@@ -37,7 +37,7 @@ const StyledBackgroundImage = styled(BackgroundImage)`
   align-items: center;
   z-index: 0;
   @media (min-width: 577px) {
-    height: ${props => (props.full ? "100vh" : "40vh")};
+    height: ${props => (props.full === "true" ? "100vh" : "40vh")};
   }
 `
 
