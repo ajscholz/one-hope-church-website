@@ -48,7 +48,7 @@ const Layout = styled.div`
 `
 
 const Main = styled.main`
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 0;
   transition: all 0.3s ease-in;
   flex-grow: 1;

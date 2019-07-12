@@ -31,12 +31,13 @@ const StyledAccordion = styled(Accordion)`
 `
 
 const Question = styled(AccordionItemButton)`
-  padding: 1rem 2rem;
+  padding: 0.8rem 1.6rem;
   background: var(--primaryLight);
   display: flex;
   align-items: center;
   z-index: 5;
   outline: none;
+  font-size: 0.9rem;
   border: 2px solid var(--primaryLight);
   border-radius: 24px;
   transition: var(--mainTransition);
@@ -65,6 +66,10 @@ const Question = styled(AccordionItemButton)`
   &:focus {
     background: var(--primary);
     border: 2px solid var(--primary);
+  }
+  @media (min-width: 577px) {
+    font-size: 1rem;
+    padding: 1rem 2rem;
   }
 `
 

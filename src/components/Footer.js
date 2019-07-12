@@ -18,7 +18,6 @@ export default ({ hide }) => {
 }
 
 const Footer = styled.footer`
-  margin-top: auto;
   background: var(--blue);
   color: white;
   width: 100vw;

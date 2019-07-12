@@ -52,19 +52,26 @@ const Navbar = styled.nav`
   top: 0;
   left: 0;
   width: 100vw;
-  padding: 2rem;
   z-index: 10;
   background: transparent;
   display: flex;
-  justify-content: space-between;
-  height: 7rem;
+  justify-content: center;
+  height: 4rem;
   overflow: hidden;
   align-items: center;
+  @media (min-width: 577px) {
+    height: 6rem;
+    padding: 1.5rem;
+    justify-content: space-between;
+  }
 `
 
 const StyledImg = styled(Img)`
-  height: 5rem;
-  width: 12rem;
+  height: 100%;
+  width: 6rem;
+  @media (min-width: 577px) {
+    width: 9rem;
+  }
 `
 
 const List = styled.ul`
@@ -79,6 +86,34 @@ const List = styled.ul`
 
 const StyledLink = styled.li`
   color: white;
-  padding: 0.5rem;
+  margin: 0.5rem;
   font-weight: 300;
+  &:hover {
+    position: relative;
+    display: inline-block;
+    color: var(--primaryLight);
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 100%;
+      height: 1px;
+      background: var(--primaryLight);
+    }
+  }
+  &[aria-current="page"] {
+    color: var(--primary);
+    position: relative;
+    display: inline-block;
+    ::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 100%;
+      height: 1px;
+      background: var(--primary);
+    }
+  }
 `

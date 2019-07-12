@@ -39,7 +39,7 @@ export default createGlobalStyle`
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
     box-sizing: border-box;
-    line-height: 1.15rem;
+
 
   }
   body {

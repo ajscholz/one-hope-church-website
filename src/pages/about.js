@@ -134,7 +134,7 @@ const About = ({ data }) => {
       </ValuesSection>
 
       <StoryBackground fluid={storyBackgroundImageStack}>
-        <Header as={Title}>Our Story</Header>
+        <Title primary>Our Story</Title>
         <StoryDescription>
           We are a church that was started over 6 years ago by the South Central
           Ohio District Church of the Nazarene.­ From the beginning we have
@@ -181,14 +181,14 @@ const About = ({ data }) => {
       </Section>
 
       <Section>
-        <Title>Location</Title>
-        <Header>Address</Header>
+        <Title primary>Our Location</Title>
+        <H3>Service Time</H3>
+        <ServiceTime>Sundays | 10:30a</ServiceTime>
+        <H3>Address</H3>
         <Address>
           1389 E. Cooke Rd., <br />
           Columbus, OH 43224
         </Address>
-        <Header>Service Time</Header>
-        <ServiceTime>Sundays | 10:30a</ServiceTime>
         <LoadScript
           id="script-loader"
           googleMapsApiKey="AIzaSyDBkvXo0CPbEMhEr4I900gRQphzwJaM4EA"
@@ -219,6 +219,7 @@ const About = ({ data }) => {
 
 const Vision = styled.h3`
   text-align: center;
+  margin: 0 0 0.75em 0;
 `
 
 const VisionEmph = styled.span`
@@ -229,6 +230,7 @@ const VisionEmph = styled.span`
 const H2 = styled.h2`
   text-align: center;
   font-size: 2rem;
+  margin: 2rem 0 0 0;
 `
 
 const ValuesSection = styled(Section)`
@@ -249,14 +251,14 @@ const StoryBackground = styled(BackgroundImage)`
   text-align: center;
 `
 
-const Header = styled.h3`
-  color: var(--primary);
-  font-size: 1.5rem;
-`
-
-const StoryDescription = styled.div`
+const StoryDescription = styled.p`
   font-weight: 300;
   color: white;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  &:first-of-type {
+  }
 `
 
 const TeamSection = styled(Section)`
@@ -321,12 +323,20 @@ const PastorDescription = styled.div`
   font-size: 0.85rem;
 `
 
+const H3 = styled.h3`
+  margin: 0;
+`
+
 const Address = styled(StoryDescription)`
   color: initial;
+  margin-bottom: 1rem;
+  display: inline-block;
 `
 
 const ServiceTime = styled(StoryDescription)`
   color: initial;
+  margin-bottom: 1rem;
+  display: inline-block;
 `
 
 export default About
