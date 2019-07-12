@@ -57,7 +57,7 @@ const Main = styled.main`
 
   min-height: calc(100vh - 8rem);
   padding-top: 0;
-  z-index: -1;
+  /* z-index: -1; */
   transition: all 0.3s ease-in;
   flex-grow: 1;
   /* @media (max-width: 576px) {
