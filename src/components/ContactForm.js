@@ -115,7 +115,7 @@ const FieldWrapper = styled.div`
   position: relative;
   display: flex;
 
-  /* fixes weird pixel issue */
+  /* fixes weird pixel issue at bottom of textarea */
   &:nth-of-type(3) {
     height: calc(100% - 3px);
   }
@@ -124,12 +124,12 @@ const FieldWrapper = styled.div`
 const StyledField = styled(Field)`
   outline: none;
   width: 100%;
-  padding: 0.5em;
+  padding: 0.5em 0.8em;
   font-size: 1em;
   resize: none;
   box-sizing: border-box;
   border: ${props => (props.error ? "2px solid tomato" : "2px solid #fccd9e")};
-  border-radius: 6px;
+  border-radius: 16px;
   background: transparent;
   transition: all 0.3s ease;
   &:focus {
@@ -141,7 +141,7 @@ const StyledErrorMessage = styled(ErrorMessage)`
   position: absolute;
   bottom: 2px;
   right: 2px;
-  border-radius: 6px;
+  border-radius: 16px;
   background: #ededed;
   padding: 0.5em;
   font-size: 1em;
