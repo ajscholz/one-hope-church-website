@@ -17,7 +17,7 @@ import Navigation from "./Navigation"
 
 import { FaPlus } from "react-icons/fa"
 
-export default ({ children, footer, minimal }) => {
+export default ({ children, path }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -44,10 +44,14 @@ export default ({ children, footer, minimal }) => {
     <Layout>
       <GlobalStyles />
       <Navbar siteTitle={data.site.siteMetadata.shortName} />
-      <Navigation position={scrollPos} visible={visible} />
+      <Navigation
+        position={scrollPos}
+        visible={visible}
+        homepage={path === "/" ? true : false}
+      />
 
       <Main>{children}</Main>
-      <Footer hide={footer}></Footer>
+      <Footer hide={path === "/" ? true : false}></Footer>
     </Layout>
   )
 }

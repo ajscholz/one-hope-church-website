@@ -1,11 +1,11 @@
 import React, { useContext } from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { links } from "../utils/Links"
 import { Link } from "gatsby"
 
-export default ({ visible }) => {
+export default ({ visible, homepage }) => {
   return (
-    <Navbar visible={visible}>
+    <Navbar visible={visible} homepage={homepage}>
       <List>
         {links.map(link => {
           return link.text === "give" ? (
@@ -32,7 +32,6 @@ export default ({ visible }) => {
 }
 
 const Navbar = styled.nav`
-  opacity: 0;
   position: fixed;
   bottom: ${props => (props.visible ? "0" : "-5rem")};
   height: 4rem;
@@ -43,15 +42,22 @@ const Navbar = styled.nav`
   z-index: 1;
   transition: all 0.6s;
   box-shadow: 1px 0px 8px;
-  animation: fade-in 1s ease 3s 1 normal forwards;
-  @keyframes fade-in {
-    from {
+
+  ${props =>
+    props.homepage &&
+    css`
+      transition: all 0s;
       opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
+      animation: fade-in 1s ease 3s 1 normal forwards;
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    `}
   @media (min-width: 576px) {
     display: none;
   }
