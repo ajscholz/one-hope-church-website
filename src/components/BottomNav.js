@@ -1,9 +1,9 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 import { links } from "../utils/Links"
 import { Link } from "gatsby"
 
-export default ({ visible, position }) => {
+export default ({ visible }) => {
   return (
     <Navbar visible={visible}>
       <List>
@@ -32,6 +32,7 @@ export default ({ visible, position }) => {
 }
 
 const Navbar = styled.nav`
+  opacity: 0;
   position: fixed;
   bottom: ${props => (props.visible ? "0" : "-5rem")};
   height: 4rem;
@@ -41,14 +42,19 @@ const Navbar = styled.nav`
   align-items: center;
   z-index: 1;
   transition: all 0.6s;
-  /* border-top: 1px solid var(--blue); */
   box-shadow: 1px 0px 8px;
+  animation: fade-in 1s ease 3s 1 normal forwards;
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
   @media (min-width: 576px) {
     display: none;
   }
-  /* display: ${props => !props.minimal && "none"}; */
-
-  /* transform: ${props => !props.open && "translateY(4rem)"}; */
 `
 
 const List = styled.ul`
