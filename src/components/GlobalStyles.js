@@ -7,6 +7,9 @@ export default createGlobalStyle`
     hsla(30%, 94%, 51%, 1);
     rgba(248, 130, 13, 1);
     */
+    --primaryLight: #ffb348;
+    --primaryDark: #be5300;
+
     --red: #982649;
     /* 
     hsla(342%, 60%, 37%, 1);
