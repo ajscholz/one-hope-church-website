@@ -50,6 +50,11 @@ export default createGlobalStyle`
   }
   a {
     text-decoration: none;
+    outline: none;
+    cursor:pointer;
   }
-  p
+  button {
+    cursor:pointer;
+    outline: none;
+  }
 `

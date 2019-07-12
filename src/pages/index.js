@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { Link } from "gatsby"
 
-import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 import HeroImage from "../components/HeroImage"
 import Button from "../components/Button"
@@ -25,7 +25,9 @@ const IndexPage = ({ data }) => {
       <SEO title="Home" />
       <HeroImage image={data.pageBackground.childImageSharp.fluid} full>
         <Banner>Welcome Home</Banner>
-        <Button>Plan A Visit</Button>
+        <Button as={Link} to="/visit">
+          Plan A Visit
+        </Button>
       </HeroImage>
     </>
   )
