@@ -3,7 +3,6 @@ import styled from "styled-components"
 import { graphql } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 
-import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 import HeroImage from "../components/HeroImage"
 import Section from "../components/Section"

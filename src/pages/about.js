@@ -254,7 +254,7 @@ const Header = styled.h3`
   font-size: 1.5rem;
 `
 
-const StoryDescription = styled.p`
+const StoryDescription = styled.div`
   font-weight: 300;
   color: white;
 `
@@ -316,7 +316,7 @@ const PastorName = styled.h4`
   font-size: 1.5rem;
 `
 
-const PastorDescription = styled.p`
+const PastorDescription = styled.div`
   margin-bottom: 0;
   font-size: 0.85rem;
 `

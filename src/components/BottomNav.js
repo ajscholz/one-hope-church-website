@@ -1,11 +1,11 @@
-import React, { useContext } from "react"
+import React from "react"
 import styled, { css } from "styled-components"
 import { links } from "../utils/Links"
 import { Link } from "gatsby"
 
-export default ({ visible, homepage }) => {
+export default ({ visible, path }) => {
   return (
-    <Navbar visible={visible} homepage={homepage}>
+    <Navbar visible={visible} homepage={path === "/" ? true : false}>
       <List>
         {links.map(link => {
           return link.text === "give" ? (
@@ -20,7 +20,7 @@ export default ({ visible, homepage }) => {
               {link.text}
             </StyledLink>
           ) : (
-            <StyledLink to={link.path} activeClass="active" key={link.text}>
+            <StyledLink to={link.path} key={link.text}>
               <Icon as={link.icon} />
               {link.text}
             </StyledLink>
