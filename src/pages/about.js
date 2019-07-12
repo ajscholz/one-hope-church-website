@@ -7,7 +7,6 @@ import Img from "gatsby-image"
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api"
 import { FaUmbrella, FaCross, FaUsers } from "react-icons/fa"
 
-import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 import HeroImage from "../components/HeroImage"
 import Section from "../components/Section"
@@ -81,7 +80,7 @@ const About = ({ data }) => {
   const { pastor } = staff
 
   return (
-    <Layout>
+    <>
       <SEO title="About" />
       <HeroImage image={data.hero.childImageSharp.fluid}>
         <Banner>About</Banner>
@@ -214,7 +213,7 @@ const About = ({ data }) => {
         <Title>Contact Us</Title>
         <ContactForm></ContactForm>
       </Section>
-    </Layout>
+    </>
   )
 }
 

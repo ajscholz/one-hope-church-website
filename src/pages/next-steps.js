@@ -31,7 +31,7 @@ export const query = graphql`
 `
 
 const NextSteps = ({ data }) => (
-  <Layout>
+  <>
     <SEO title="Next Steps" />
     <HeroImage image={data.hero.childImageSharp.fluid}>
       <Banner>Next Steps</Banner>
@@ -84,7 +84,7 @@ const NextSteps = ({ data }) => (
       </ul>
       <Button>Sign up for Next</Button>
     </Section>
-  </Layout>
+  </>
 )
 
 const BackgroundImageSection = styled(Section)`

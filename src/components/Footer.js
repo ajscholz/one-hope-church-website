@@ -18,7 +18,6 @@ export default ({ hide }) => {
 }
 
 const Footer = styled.footer`
-  margin-bottom: 4rem;
   margin-top: auto;
   background: var(--blue);
   color: white;
@@ -30,8 +29,5 @@ const Footer = styled.footer`
   & a:visited,
   a:active {
     color: var(--lightGray);
-  }
-  @media (min-width: 577px) {
-    margin-bottom: 0;
   }
 `

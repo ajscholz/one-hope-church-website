@@ -25,7 +25,7 @@ export const query = graphql`
 `
 
 const Visit = ({ data }) => (
-  <Layout>
+  <>
     <HeroImage image={data.hero.childImageSharp.fluid}>
       <Banner>Plan A Visit</Banner>
     </HeroImage>
@@ -61,7 +61,7 @@ const Visit = ({ data }) => (
       <Title>Any other questions?</Title>
       <ContactForm />
     </Section>
-  </Layout>
+  </>
 )
 
 export default Visit

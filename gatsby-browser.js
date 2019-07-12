@@ -8,10 +8,17 @@
 
 require("typeface-raleway")
 
-export const onClientEntry = () => {
+const React = require("react")
+const Layout = require("./src/components/Layout").default
+
+exports.wrapPageElement = ({ element, props }) => {
+  return <Layout {...props}>{element}</Layout>
+}
+
+exports.onClientEntry = () => {
   // IntersectionObserver polyfill for gatsby-background-image (Safari, IE)
   if (typeof window.IntersectionObserver === `undefined`) {
-    import(`intersection-observer`)
+    require(`intersection-observer`)
     console.log(`# IntersectionObserver is polyfilled!`)
   }
 }

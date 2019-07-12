@@ -3,10 +3,9 @@ import styled from "styled-components"
 import { links } from "../utils/Links"
 import { Link } from "gatsby"
 
-export default ({ open }) => {
+export default ({ visible, position }) => {
   return (
-    // <Navbar open={open}>
-    <Navbar>
+    <Navbar visible={visible}>
       <List>
         {links.map(link => {
           return link.text === "give" ? (
@@ -21,7 +20,7 @@ export default ({ open }) => {
               {link.text}
             </StyledLink>
           ) : (
-            <StyledLink as={Link} to={link.path} key={link.text}>
+            <StyledLink to={link.path} activeClass="active" key={link.text}>
               <Icon as={link.icon} />
               {link.text}
             </StyledLink>
@@ -34,14 +33,14 @@ export default ({ open }) => {
 
 const Navbar = styled.nav`
   position: fixed;
-  bottom: 0;
+  bottom: ${props => (props.visible ? "0" : "-5rem")};
   height: 4rem;
   width: 100vw;
   background: white;
   display: flex;
   align-items: center;
   z-index: 1;
-  transition: all 0.3s ease-in;
+  transition: all 0.6s;
   /* border-top: 1px solid var(--blue); */
   box-shadow: 1px 0px 8px;
   @media (min-width: 576px) {
@@ -64,7 +63,7 @@ const Icon = styled.div`
   margin-bottom: 0.3rem;
 `
 
-const StyledLink = styled.li`
+const StyledLink = styled(Link)`
   font-weight: 300;
   text-transform: capitalize;
   font-size: 0.8rem;
@@ -72,4 +71,9 @@ const StyledLink = styled.li`
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: var(--mainTransition);
+  &[aria-current="page"] {
+    transform: scale(1.15);
+    color: var(--primary);
+  }
 `

@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -13,13 +13,11 @@ import Navbar from "./Navbar"
 import GlobalStyles from "./GlobalStyles"
 import Footer from "./Footer"
 import styled, { css } from "styled-components"
-import BottomNav from "./BottomNav"
+import Navigation from "./Navigation"
 
 import { FaPlus } from "react-icons/fa"
 
 export default ({ children, footer, minimal }) => {
-  const [open, toggleOpen] = useState(!minimal)
-
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -30,19 +28,25 @@ export default ({ children, footer, minimal }) => {
     }
   `)
 
+  const [scrollPos, handleScroll] = useState(window.pageYOffset)
+  const [visible, toggleVisible] = useState(true)
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      const prevPos = scrollPos
+      const curPos = window.pageYOffset
+      toggleVisible(prevPos > curPos)
+      handleScroll(curPos)
+    })
+  })
+
   return (
     <Layout>
       <GlobalStyles />
-      <Navbar siteTitle={data.site.siteMetadata.shortName} open={open} />
-      <BottomNav open={open} />
-      <Main open={open}>
-        {children}{" "}
-        {minimal && (
-          <ToggleNav onClick={() => toggleOpen(!open)}>
-            <StyledIcon open={open}></StyledIcon>
-          </ToggleNav>
-        )}
-      </Main>
+      <Navbar siteTitle={data.site.siteMetadata.shortName} />
+      <Navigation position={scrollPos} visible={visible} />
+
+      <Main>{children}</Main>
       <Footer hide={footer}></Footer>
     </Layout>
   )
