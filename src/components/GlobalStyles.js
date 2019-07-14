@@ -47,6 +47,7 @@ export default createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: var(--blue);
+    line-height: 1.45;
   }
   a {
     text-decoration: none;
