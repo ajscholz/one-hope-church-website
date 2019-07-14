@@ -14,7 +14,7 @@ export default () => {
             rel="noopener noreferrer"
             key={item.name}
           >
-            <Icon as={item.icon} />
+            <Icon as={item.icon} alt={item.name} />
           </LinkWrapper>
         )
       })}
@@ -34,7 +34,8 @@ const LinkWrapper = styled.a`
   margin: 0 0.5rem;
   background: transparent;
   transition: var(--mainTransition);
-  &:hover {
+  &:hover,
+  &:focus {
     border-color: var(--primaryLight);
     color: var(--primaryLight);
     transform: scale(1.05);

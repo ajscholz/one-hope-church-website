@@ -91,6 +91,10 @@ const StyledLink = styled(Link)`
   flex-direction: column;
   align-items: center;
   transition: var(--mainTransition);
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+  }
   &[aria-current="page"] {
     transform: scale(1.15);
     color: var(--primary);
