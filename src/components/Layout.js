@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Navbar from "./Navbar"
@@ -18,23 +18,11 @@ export default ({ children, path }) => {
     }
   `)
 
-  const [scrollPos, handleScroll] = useState(window.pageYOffset)
-  const [visible, toggleVisible] = useState(true)
-
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      const prevPos = scrollPos
-      const curPos = window.pageYOffset
-      toggleVisible(prevPos > curPos)
-      handleScroll(curPos)
-    })
-  })
-
   return (
     <Layout>
       <GlobalStyles />
       <Navbar siteTitle={data.site.siteMetadata.shortName} />
-      <Navigation position={scrollPos} visible={visible} path={path} />
+      <Navigation path={path} />
 
       <Main>{children}</Main>
       <Footer hide={path === "/" ? true : false}></Footer>

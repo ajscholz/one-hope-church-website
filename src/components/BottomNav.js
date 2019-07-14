@@ -3,9 +3,9 @@ import styled, { css } from "styled-components"
 import { links } from "../utils/Links"
 import { Link } from "gatsby"
 
-export default ({ visible, path }) => {
+export default ({ path }) => {
   return (
-    <Navbar visible={visible} homepage={path === "/" ? true : false}>
+    <Navbar homepage={path === "/" ? true : false}>
       <List>
         {links.map(link => {
           return link.text === "give" ? (
@@ -33,7 +33,7 @@ export default ({ visible, path }) => {
 
 const Navbar = styled.nav`
   position: fixed;
-  bottom: ${props => (props.visible ? "0" : "-5rem")};
+  bottom: 0;
   height: 3.5rem;
   width: 100vw;
   padding: 0 10vw;
