@@ -49,7 +49,7 @@ const Navbar = styled.nav`
     css`
       transition: all 0s;
       opacity: 0;
-      animation: fade-in 1s ease 3s 1 normal forwards;
+      animation: fade-in 1s ease 2s 1 normal forwards;
       @keyframes fade-in {
         from {
           opacity: 0;

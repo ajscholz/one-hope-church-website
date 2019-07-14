@@ -32,6 +32,7 @@ const StyledP = styled.p`
 `
 
 const Footer = styled.footer`
+  margin-bottom: 3.5rem;
   font-size: 0.9rem;
   background: var(--blue);
   color: white;
@@ -44,5 +45,8 @@ const Footer = styled.footer`
   & a:visited,
   a:active {
     color: var(--lightGray);
+  }
+  @media (min-width: 577px) {
+    margin-bottom: 0;
   }
 `
