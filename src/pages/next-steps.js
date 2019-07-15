@@ -10,6 +10,7 @@ import Banner from "../components/Banner"
 import Title from "../components/Title"
 import Button from "../components/Button"
 import Modal from "../components/Modal"
+import NextForm from "../components/NextForm"
 import ContactForm from "../components/ContactForm"
 
 import useModal from "../utils/hooks/useModal"
@@ -67,7 +68,15 @@ const NextSteps = ({ data }) => {
           <li>A support sytem to do life with</li>
           <li>Ordinary people together on an extraordinary mission</li>
         </ul>
-        <Button>Join A Small Group Today</Button>
+        <Button
+          id="groups-button"
+          data-form="ContactForm"
+          onClick={e => {
+            console.log(`${e.target}`)
+          }}
+        >
+          Join A Small Group Today
+        </Button>
       </Section>
       <Section>
         <Title>Next</Title>
@@ -90,7 +99,7 @@ const NextSteps = ({ data }) => {
         <Button onClick={toggle}>Sign up for Next</Button>
       </Section>
       <Modal isShowing={isShowing} hide={toggle}>
-        <ContactForm />
+        <NextForm />
       </Modal>
     </>
   )

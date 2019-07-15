@@ -4,10 +4,13 @@ import styled from "styled-components"
 
 import { FaTimes } from "react-icons/fa"
 
+// https://upmostly.com/tutorials/modal-components-react-custom-hooks
+
 export default ({ isShowing, hide, children }) =>
   isShowing
     ? ReactDOM.createPortal(
-        <ModalOverlay onClick={hide}>
+        // <ModalOverlay onClick={hide}>
+        <ModalOverlay>
           <ModalWrapper aria-modal aria-hidden tab-Index={-1} role="dialog">
             <Modal>
               <Header>
