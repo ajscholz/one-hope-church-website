@@ -138,7 +138,7 @@ const StyledErrorMessage = styled(ErrorMessage)`
   bottom: 2px;
   right: 2px;
   border-radius: 16px;
-  background: #ededed;
+  background: transparent;
   padding: 0.5em;
   font-size: 1em;
   color: tomato;
