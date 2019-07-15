@@ -34,10 +34,20 @@ export default ({ className }) => {
           alert(JSON.stringify(values, null, 2))
           setSubmitting(false)
         }, 400)
+        fetch("/")
       }}
     >
       {({ errors, isSubmitting }) => (
-        <StyledForm className={className}>
+        <StyledForm
+          name="contact-form"
+          className={className}
+          method="post"
+          data-netlify-honeypot="bot-field"
+          data-netlify="true"
+        >
+          <BotField>
+            Don’t fill this out if you're human: <input name="bot-field" />
+          </BotField>
           <FieldWrapper>
             <StyledField
               type="text"
@@ -159,4 +169,8 @@ const StyledButton = styled(Button)`
     background: none;
     color: #f8820d;
   }
+`
+
+const BotField = styled.label`
+  display: none;
 `
