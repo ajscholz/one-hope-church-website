@@ -11,7 +11,6 @@ import Title from "../components/Title"
 import Button from "../components/Button"
 import Modal from "../components/Modal"
 import NextForm from "../components/NextForm"
-import ContactForm from "../components/ContactForm"
 
 import useModal from "../utils/hooks/useModal"
 
@@ -34,6 +33,15 @@ export const query = graphql`
   }
 `
 
+const handleClick = () => {
+  fetch("/.netlify/functions/hello", {
+    method: "post",
+    body: JSON.stringify({ name: "jim" }),
+  })
+    .then(response => response.json())
+    .then(console.log)
+}
+
 const NextSteps = ({ data }) => {
   const { isShowing, toggle } = useModal()
   return (
@@ -41,6 +49,7 @@ const NextSteps = ({ data }) => {
       <SEO title="Next Steps" />
       <HeroImage image={data.hero.childImageSharp.fluid}>
         <Banner>Next Steps</Banner>
+        <Button onClick={handleClick}>Function test</Button>
       </HeroImage>
       <Section>
         <Title>Take your next step at One Hope and you'll find...</Title>

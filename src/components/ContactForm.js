@@ -24,14 +24,14 @@ export default ({ className }) => {
   return (
     <Formik
       initialValues={{
-        name: "",
-        email: "",
-        message: "",
+        name: "Andrew",
+        email: "andrew@citynorth.church",
+        message: "This is a test!",
       }}
       validationSchema={ContactSchema}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
-          alert(JSON.stringify(values, null, 2))
+          // alert(JSON.stringify(values, null, 2))
           setSubmitting(false)
         }, 400)
         fetch("/")

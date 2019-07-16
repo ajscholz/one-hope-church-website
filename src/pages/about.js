@@ -15,7 +15,7 @@ import TeamCard from "../components/TeamCard"
 import ContactForm from "../components/ContactForm"
 import Title from "../components/Title"
 import IconInfo from "../components/IconInfo"
-import ContactForm2 from "../components/ContactForm"
+import ContactForm2 from "../components/ContactForm2"
 
 import staff from "../utils/staff"
 

@@ -1,4 +1,5 @@
 require("regenerator-runtime/runtime")
+var proxy = require("http-proxy-middleware")
 
 module.exports = {
   siteMetadata: {
@@ -15,6 +16,17 @@ module.exports = {
     ministries: {
       kids: "One Hope Kids",
     },
+  },
+  developMiddleware: app => {
+    app.use(
+      "/.netlify/functions/",
+      proxy({
+        target: "http://localhost:9000",
+        pathRewrite: {
+          "/.netlify/functions/": "",
+        },
+      })
+    )
   },
   plugins: [
     {
