@@ -154,13 +154,13 @@ const About = ({ data }) => {
       <TeamSection>
         <Title>Our Team</Title>
         <TeamContainer>
-          {Object.keys(teamMembers).map(key => {
+          {Object.keys(teamMembers).map(teamMember => {
             return (
               <TeamCard
-                key={key}
-                name={staff[key].name}
-                jobTitle={staff[key].title}
-                image={data[key].childImageSharp.fluid}
+                key={teamMember}
+                name={staff[teamMember].name}
+                jobTitle={staff[teamMember].title}
+                image={data[teamMember].childImageSharp.fluid}
               />
             )
           })}

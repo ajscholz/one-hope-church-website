@@ -3,10 +3,12 @@ import styled from "styled-components"
 import BackgroundImage from "gatsby-background-image"
 
 const HeroImage = ({ className, image, children, full }) => {
-  const [height, setHeight] = React.useState(window.innerHeight)
+  const [height, setHeight] = React.useState(
+    typeof window !== "undefined" ? window.innerHeight : 0
+  )
   React.useEffect(() => {
     const handleHeightChange = () => {
-      setHeight(window.innerHeight)
+      setHeight(typeof window !== "undefined" ? window.innerHeight : 0)
     }
     if (full) {
       window.addEventListener("resize", handleHeightChange)
