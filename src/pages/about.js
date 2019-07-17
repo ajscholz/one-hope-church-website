@@ -15,7 +15,6 @@ import TeamCard from "../components/TeamCard"
 import ContactForm from "../components/ContactForm"
 import Title from "../components/Title"
 import IconInfo from "../components/IconInfo"
-import ContactForm2 from "../components/ContactForm2"
 
 import staff from "../utils/staff"
 
@@ -213,7 +212,6 @@ const About = ({ data }) => {
       <Section>
         <Title>Contact Us</Title>
         <ContactForm></ContactForm>
-        <ContactForm2></ContactForm2>
       </Section>
     </>
   )
