@@ -24,18 +24,16 @@ export default ({ className }) => {
   return (
     <Formik
       initialValues={{
-        name: "Andrew",
-        email: "andrew@citynorth.church",
-        message: "This is a test!",
+        name: "",
+        email: "",
+        message: "",
       }}
       validationSchema={ContactSchema}
-      onSubmit={async (values, { setSubmitting }) => {
-        // alert(JSON.stringify(values, null, 2))
-        setSubmitting(false)
+      onSubmit={async (values, { setSubmitting, resetForm }) => {
         try {
           const response = await fetch(
-            // "/.netlify/functions/contact-submission",
-            "https://hook.integromat.com/wj3q5rp7edvkvb1im0bbnwsrcbxxsb9p",
+            "/.netlify/functions/contact-submission",
+            // "https://hook.integromat.com/wj3q5rp7edvkvb1im0bbnwsrcbxxsb9p",
             {
               method: "POST",
               headers: {
@@ -46,31 +44,30 @@ export default ({ className }) => {
               }),
             }
           )
-          // const body = await JSON.parse(response.body)
-
-          console.log(response.status === 200 ? "Message Accepted!" : "Error")
+          if (response.status === 200) {
+            alert("Form Submission Successful!")
+            resetForm()
+          }
         } catch (error) {
-          console.log(error)
+          alert("There was an error. Please try again.")
+          setSubmitting(false)
         }
       }}
-    >
-      {({ errors, isSubmitting }) => (
+      render={props => (
         <StyledForm
-          name="contact-form"
           className={className}
           method="post"
-          data-netlify-honeypot="bot-field"
-          data-netlify="true"
+          onSubmit={e => {
+            e.preventDefault()
+            props.handleSubmit(e)
+          }}
         >
-          <BotField>
-            Don’t fill this out if you're human: <input name="bot-field" />
-          </BotField>
           <FieldWrapper>
             <StyledField
               type="text"
               name="name"
               placeholder="Name"
-              error={errors.name}
+              error={props.errors.name}
               className={className}
             />
             <StyledErrorMessage
@@ -84,7 +81,7 @@ export default ({ className }) => {
               type="email"
               name="email"
               placeholder="Email"
-              error={errors.email}
+              error={props.errors.email}
               className={className}
             />
             <StyledErrorMessage
@@ -99,7 +96,7 @@ export default ({ className }) => {
               component="textarea"
               placeholder="Message..."
               rows="5"
-              error={errors.message}
+              error={props.errors.message}
               className={className}
             ></StyledField>
             <StyledErrorMessage
@@ -111,7 +108,10 @@ export default ({ className }) => {
           <StyledButton
             type="submit"
             disabled={
-              errors.name || errors.email || errors.message || isSubmitting
+              props.errors.name ||
+              props.errors.email ||
+              props.errors.message ||
+              props.isSubmitting
             }
             className={className}
           >
@@ -119,7 +119,7 @@ export default ({ className }) => {
           </StyledButton>
         </StyledForm>
       )}
-    </Formik>
+    />
   )
 }
 
@@ -186,8 +186,4 @@ const StyledButton = styled(Button)`
     background: none;
     color: #f8820d;
   }
-`
-
-const BotField = styled.label`
-  display: none;
 `
