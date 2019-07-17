@@ -51,12 +51,16 @@ const ModalOverlay = styled.div`
 const ModalWrapper = styled.div`
   z-index: 500;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 const Modal = styled.div`
   width: 100%;
   padding: 1rem;
   height: auto;
+  max-width: 600px;
   max-height: 90vh;
   background: white;
   border-radius: 8px;

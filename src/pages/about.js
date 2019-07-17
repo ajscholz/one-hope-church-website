@@ -15,6 +15,7 @@ import TeamCard from "../components/TeamCard"
 import ContactForm from "../components/ContactForm"
 import Title from "../components/Title"
 import IconInfo from "../components/IconInfo"
+import FlexContainer from "../components/FlexContainer"
 
 import staff from "../utils/staff"
 
@@ -111,26 +112,26 @@ const About = ({ data }) => {
       </Section>
       <ValuesSection>
         <Title>Our Values</Title>
-        <ValuesContainer>
+        <FlexContainer>
           <IconInfo
             icon={FaUmbrella}
-            color="#69995D"
+            color="var(--green)"
             title="Better Together"
             text={`We were made for authentic relationships because someday in your life it will rain, and nobody should be stuck outside without an umbrella.`}
           />
           <IconInfo
             icon={FaUsers}
-            color="#CBAC88"
+            color="var(--brown)"
             title="Never Alone"
             text={` No one’s life is perfect, but when we embrace the journey together we can support each other, experience wholeness and ultimately find our purpose in Jesus.`}
           />
           <IconInfo
             icon={FaCross}
-            color="#F8820D"
+            color="var(--red)"
             title="All for Jesus"
             text={`We are constantly working toward the common good of our city and world by making Jesus famous by the way we love and serve our neighbors.`}
           />
-        </ValuesContainer>
+        </FlexContainer>
       </ValuesSection>
 
       <StoryBackground fluid={storyBackgroundImageStack}>
@@ -235,15 +236,6 @@ const H2 = styled.h2`
 
 const ValuesSection = styled(Section)`
   padding: 4rem 2.5vw 3rem 2.5vw;
-`
-
-const ValuesContainer = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  text-align: center;
 `
 
 const StoryBackground = styled(BackgroundImage)`

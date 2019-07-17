@@ -6,6 +6,7 @@ export default styled.section`
   flex-direction: column;
   align-items: center;
   &:nth-of-type(odd) {
-    background: #ededed;
+    background: ${props => !props.overlay && "#ededed"};
   }
+  background: ${props => props.overlay && "rgba(0, 0, 0, 0.6)"};
 `
