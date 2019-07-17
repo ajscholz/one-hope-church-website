@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components"
 
 export default styled.div`
-  width: 100%;
+  width: 125%;
   display: flex;
   justify-content: center;
   align-items: flex-start;

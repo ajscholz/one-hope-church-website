@@ -8,8 +8,15 @@ export default createGlobalStyle`
     rgba(248, 130, 13, 1);
     */
     --primaryLight: #ffb348;
+    /* 
+    rgba(255, 179, 72, 1)
+    hsla(35, 100%, 64%, 1)
+    */
     --primaryDark: #be5300;
-
+    /* 
+    rgba(190, 83, 0, 1)
+    hsla(26, 100%, 37%, 1)
+    */
     --red: #982649;
     /* 
     hsla(342%, 60%, 37%, 1);

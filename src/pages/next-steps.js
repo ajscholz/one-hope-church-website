@@ -126,7 +126,7 @@ const NextSteps = ({ data }) => {
 }
 
 const Description = styled.div`
-  margin: -1.5rem 0 1rem 0;
+  margin: -1.5rem 0 2rem 0;
   text-align: center;
   max-width: 500px;
 `

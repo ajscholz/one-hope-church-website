@@ -13,20 +13,28 @@ export default ({ icon, color, title, text, light }) => {
 
 const Container = styled.div`
   display: flex;
-  flex-direction: column;
   flex-wrap: nowrap;
-  align-items: center;
   justify-content: flex-start;
-  text-align: center;
+  align-items: center;
   padding: 1rem;
-  width: 300px;
+  width: 80%;
   margin: 0 1rem 1rem 1rem;
+  @media (min-width: 577px) {
+    flex-direction: column;
+    text-align: center;
+    width: 275px;
+  }
 `
 
 const Icon = styled.svg`
   font-size: 2.75rem;
-  margin: 0 0 1rem 0;
+  min-width: 50px;
+  margin: 0 1rem 0 0;
   color: ${props => props.color};
+  @media (min-width: 577px) {
+    min-width: unset;
+    margin: 0 0 1rem 0;
+  }
 `
 
 const Heading = styled.h4`
@@ -37,7 +45,10 @@ const Heading = styled.h4`
 
 const Description = styled.p`
   font-weight: 300;
-
+  text-align: left;
   margin: 0;
   color: ${props => (props.light ? "white" : "var(--blue)")};
+  @media (min-width: 577px) {
+    text-align: center;
+  }
 `
