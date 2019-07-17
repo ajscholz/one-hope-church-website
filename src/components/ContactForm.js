@@ -29,12 +29,29 @@ export default ({ className }) => {
         message: "This is a test!",
       }}
       validationSchema={ContactSchema}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          // alert(JSON.stringify(values, null, 2))
-          setSubmitting(false)
-        }, 400)
-        fetch("/")
+      onSubmit={async (values, { setSubmitting }) => {
+        // alert(JSON.stringify(values, null, 2))
+        setSubmitting(false)
+        try {
+          const response = await fetch(
+            // "/.netlify/functions/contact-submission",
+            "https://hook.integromat.com/wj3q5rp7edvkvb1im0bbnwsrcbxxsb9p",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                values,
+              }),
+            }
+          )
+          // const body = await JSON.parse(response.body)
+
+          console.log(response.status === 200 ? "Message Accepted!" : "Error")
+        } catch (error) {
+          console.log(error)
+        }
       }}
     >
       {({ errors, isSubmitting }) => (
