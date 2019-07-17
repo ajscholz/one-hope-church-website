@@ -6,7 +6,7 @@ import HeroImage from "../components/HeroImage"
 import Section from "../components/Section"
 import Banner from "../components/Banner"
 import Title from "../components/Title"
-import ContactForm from "../components/ContactForm"
+import ContactForm from "../components/Forms/ContactForm"
 import Accordion from "../components/Accordion"
 
 import questions from "../utils/questions"

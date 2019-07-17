@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { graphql } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
@@ -11,6 +11,7 @@ import Title from "../components/Title"
 import Button from "../components/Button"
 import Modal from "../components/Modal"
 import NextForm from "../components/Forms/NextForm"
+import SmallGroupForm from "../components/Forms/SmallGroupForm"
 import FlexContainer from "../components/FlexContainer"
 import IconInfo from "../components/IconInfo"
 import IconList from "../components/IconList"
@@ -38,6 +39,7 @@ export const query = graphql`
 `
 
 const NextSteps = ({ data }) => {
+  const [modalForm, changeModalForm] = useState(null)
   const { isShowing, toggle } = useModal()
   return (
     <>
@@ -64,10 +66,9 @@ const NextSteps = ({ data }) => {
           <>Ordinary people together on an extraordinary mission</>
         </IconList>
         <Button
-          id="groups-button"
-          data-form="ContactForm"
-          onClick={e => {
-            console.log(`${e.target}`)
+          onClick={() => {
+            changeModalForm("groups")
+            toggle()
           }}
         >
           Join A Small Group Today
@@ -102,14 +103,23 @@ const NextSteps = ({ data }) => {
               text={`Connect with people and resources and watch your faith grow.`}
             />
           </FlexContainer>
-          <StyledNextButton onClick={toggle}>
+          <StyledNextButton
+            onClick={() => {
+              changeModalForm("next")
+              toggle()
+            }}
+          >
             Discover Your Next Spiritual Step
           </StyledNextButton>
         </Section>
       </BackgroundImage>
 
       <Modal isShowing={isShowing} hide={toggle}>
-        <NextForm />
+        {modalForm === "next" ? (
+          <NextForm />
+        ) : modalForm === "groups" ? (
+          <SmallGroupForm />
+        ) : null}
       </Modal>
     </>
   )

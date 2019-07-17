@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik"
 import * as Yup from "yup"
 import styled from "styled-components"
 
-import Button from "./Button"
+import Button from "../Button"
 
 // Yup validation schema for formik form
 const ContactSchema = Yup.object().shape({

@@ -4,7 +4,6 @@ import styled from "styled-components"
 import { FaCheck } from "react-icons/fa"
 
 export default ({ children }) => {
-  console.log(children)
   return (
     <List>
       {children.map((child, index) => (
