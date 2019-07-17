@@ -28,6 +28,7 @@ export default ({ hide }) => {
 }
 
 const StyledP = styled.p`
+  font-size: 0.8rem;
   margin: 0 auto;
   text-align: center;
   &:first-of-type {
@@ -36,6 +37,9 @@ const StyledP = styled.p`
   & a:visited,
   a:active {
     color: var(--lightGray);
+  }
+  @media (min-width: 576px) {
+    font-size: 0.9rem;
   }
 `
 

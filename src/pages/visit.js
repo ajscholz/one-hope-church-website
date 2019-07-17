@@ -56,7 +56,7 @@ const Visit = ({ data }) => {
           <IconInfo
             icon={FaClock}
             color="var(--brown)"
-            text={`A simple, sacred gathering from 10:30 - noon`}
+            text={`A simple, sacred gathering from 10:30\u00A0-\u00A0noon`}
           />
           <IconInfo
             icon={FaMusic}

@@ -34,6 +34,7 @@ const Icon = styled.i`
   align-self: center;
   margin-right: 10px;
   color: ${props => props.color};
+  min-width: 1rem;
 `
 
 const Text = styled.span`

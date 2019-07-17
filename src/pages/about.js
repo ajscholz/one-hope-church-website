@@ -235,7 +235,7 @@ const H2 = styled.h2`
 `
 
 const ValuesSection = styled(Section)`
-  padding: 4rem 2.5vw 3rem 2.5vw;
+  padding: 4rem 10vw 3rem 10vw;
 `
 
 const StoryBackground = styled(BackgroundImage)`
