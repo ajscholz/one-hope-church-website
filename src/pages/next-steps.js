@@ -114,7 +114,17 @@ const NextSteps = ({ data }) => {
         </Section>
       </BackgroundImage>
 
-      <Modal isShowing={isShowing} hide={toggle}>
+      <Modal
+        isShowing={isShowing}
+        hide={toggle}
+        title={
+          modalForm === "next"
+            ? "Next Class Signup"
+            : modalForm === "groups"
+            ? "Small Groups Signup"
+            : null
+        }
+      >
         {modalForm === "next" ? (
           <NextForm />
         ) : modalForm === "groups" ? (

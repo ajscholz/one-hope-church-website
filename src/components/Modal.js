@@ -6,7 +6,7 @@ import { FaTimes } from "react-icons/fa"
 
 // https://upmostly.com/tutorials/modal-components-react-custom-hooks
 
-export default ({ isShowing, hide, children }) =>
+export default ({ isShowing, hide, children, title }) =>
   isShowing
     ? ReactDOM.createPortal(
         // <ModalOverlay onClick={hide}>
@@ -14,6 +14,7 @@ export default ({ isShowing, hide, children }) =>
           <ModalWrapper aria-modal aria-hidden tab-Index={-1} role="dialog">
             <Modal>
               <Header>
+                <Title>{title}</Title>
                 <CloseButton
                   type="button"
                   className="modal-close-button"
@@ -26,7 +27,7 @@ export default ({ isShowing, hide, children }) =>
                   </span>
                 </CloseButton>
               </Header>
-              <Body>{children}</Body>
+              <div>{children}</div>
             </Modal>
           </ModalWrapper>
         </ModalOverlay>,
@@ -58,7 +59,7 @@ const ModalWrapper = styled.div`
 
 const Modal = styled.div`
   width: 100%;
-  padding: 1rem;
+  padding: 1.5rem;
   height: auto;
   max-width: 600px;
   max-height: 90vh;
@@ -70,8 +71,13 @@ const Modal = styled.div`
 
 const Header = styled.div`
   display: flex;
-  justify-content: flex-end;
-  margin-bottom: 1rem;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+`
+
+const Title = styled.h3`
+  font-weight: 400;
+  margin: 0;
 `
 
 const CloseButton = styled.button`
@@ -79,8 +85,6 @@ const CloseButton = styled.button`
   border: none;
   background: transparent;
 `
-
-const Body = styled.div``
 
 const StyledIcon = styled(FaTimes)`
   display: block;

@@ -80,9 +80,8 @@ export default ({ className }) => {
               className={className}
             />
           </FieldWrapper>
-          <FieldWrapper>
-            <StyledField
-              component="select"
+          <SelectWrapper>
+            <SelectField
               name="language"
               placeholder="which language?"
               className={className}
@@ -90,8 +89,8 @@ export default ({ className }) => {
               <option>English</option>
               <option>Spanish</option>
               <option>Portugese</option>
-            </StyledField>
-          </FieldWrapper>
+            </SelectField>
+          </SelectWrapper>
           <FieldWrapper>
             <StyledField
               component="select"
@@ -141,7 +140,6 @@ const StyledField = styled(Field)`
   width: 100%;
   padding: 0.5em 0.8em;
   font-size: 1em;
-  resize: none;
   box-sizing: border-box;
   border: ${props => (props.error ? "2px solid tomato" : "2px solid #fccd9e")};
   border-radius: 16px;
@@ -166,16 +164,31 @@ const StyledErrorMessage = styled(ErrorMessage)`
   align-self: flex-end;
 `
 
+const SelectWrapper = styled.div`
+  /* position: relative;
+  & > ${SelectField} {
+    display: none;
+  } */
+`
+
+const SelectField = styled.select``
+
 const StyledButton = styled(Button)`
   outline: none;
   width: 100%;
   transition: all 0.3s ease;
   cursor: pointer;
   border: 2px solid #f8820d;
+  margin-top: 1.5rem;
   &:hover,
   &:focus {
-    transform: scale(1.05);
     background: none;
     color: #f8820d;
+  }
+  &:disabled {
+    background: var(--primaryLight);
+    border: 2px solid var(--primaryLight);
+    color: white;
+    cursor: unset;
   }
 `
