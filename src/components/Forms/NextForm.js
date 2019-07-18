@@ -69,6 +69,7 @@ export default ({ className }) => {
               placeholder="Name"
               error={errors.name}
               className={className}
+              aria-label="name"
             />
             <StyledErrorMessage
               name="name"
@@ -84,6 +85,7 @@ export default ({ className }) => {
               placeholder="Email"
               error={errors.email}
               className={className}
+              aria-label="email"
             />
             <StyledErrorMessage
               name="email"
@@ -99,6 +101,7 @@ export default ({ className }) => {
               placeholder="Phone: ex. 111-222-3333"
               error={errors.phone}
               className={className}
+              aria-label="phone"
             />
             <StyledErrorMessage
               name="phone"
@@ -119,6 +122,7 @@ export default ({ className }) => {
               classNamePrefix="select"
               styles={customStyles}
               error={errors.language}
+              aria-label="preferred language"
             />
             <Select
               isSearchable={false}
@@ -132,6 +136,7 @@ export default ({ className }) => {
               value={values.parameter}
               styles={customStyles}
               error={errors.session}
+              aria-label="preferred session"
             ></Select>
           </SelectWrapper>
 

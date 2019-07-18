@@ -64,6 +64,7 @@ export default ({ className }) => {
               placeholder="Name"
               error={props.errors.name}
               className={className}
+              aria-label="name"
             />
             <StyledErrorMessage
               name="name"
@@ -78,6 +79,7 @@ export default ({ className }) => {
               placeholder="Phone"
               error={props.errors.phone}
               className={className}
+              aria-label="phone"
             />
             <StyledErrorMessage
               name="phone"
@@ -92,6 +94,7 @@ export default ({ className }) => {
               placeholder="Email"
               error={props.errors.email}
               className={className}
+              aria-label="email"
             />
             <StyledErrorMessage
               name="email"

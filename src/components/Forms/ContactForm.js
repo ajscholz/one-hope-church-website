@@ -69,6 +69,7 @@ export default ({ className }) => {
               placeholder="Name"
               error={errors.name}
               className={className}
+              aria-label="name"
             />
             <StyledErrorMessage
               name="name"
@@ -83,6 +84,7 @@ export default ({ className }) => {
               placeholder="Email"
               error={errors.email}
               className={className}
+              aria-label="email"
             />
             <StyledErrorMessage
               name="email"
@@ -98,6 +100,7 @@ export default ({ className }) => {
               rows="5"
               error={errors.message}
               className={className}
+              aria-label="message"
             ></StyledField>
             <StyledErrorMessage
               name="message"

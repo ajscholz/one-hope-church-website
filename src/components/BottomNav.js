@@ -6,7 +6,7 @@ import { Link } from "gatsby"
 export default ({ path }) => {
   return (
     <Navbar homepage={path === "/" ? true : false}>
-      <List>
+      <Wrapper>
         {links.map(link => {
           return link.text === "give" ? (
             <StyledLink
@@ -26,7 +26,7 @@ export default ({ path }) => {
             </StyledLink>
           )
         })}
-      </List>
+      </Wrapper>
     </Navbar>
   )
 }
@@ -64,12 +64,10 @@ const Navbar = styled.nav`
   }
 `
 
-const List = styled.ul`
+const Wrapper = styled.div`
   width: 100%;
   position: relative;
   top: 2px;
-  list-style: none;
-  padding-inline-start: 0;
   display: flex;
   justify-content: space-between;
 `

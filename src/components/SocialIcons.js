@@ -13,6 +13,7 @@ export default () => {
             target="_blank"
             rel="noopener noreferrer"
             key={item.name}
+            aria-label={item.name}
           >
             <Icon as={item.icon} alt={item.name} />
           </LinkWrapper>
