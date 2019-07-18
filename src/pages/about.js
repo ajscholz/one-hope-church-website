@@ -71,10 +71,10 @@ const About = ({ data }) => {
     lat: 40.047241,
     lng: -82.978953,
   }
-  const storyBackgroundImageStack = [
-    data.story.childImageSharp.fluid,
-    `linear-gradient(120deg, rgba(57, 70, 72, .8), rgba(57,70,72,.8))`,
-  ].reverse()
+  // const storyBackgroundImageStack = [
+  //   data.story.childImageSharp.fluid,
+  //   `linear-gradient(120deg, rgba(57, 70, 72, .8), rgba(57,70,72,.8))`,
+  // ].reverse()
 
   // creates new array for team members without felipe
   const teamMembers = (({ pastor, ...staff }) => ({ ...staff }))(staff)
@@ -134,22 +134,26 @@ const About = ({ data }) => {
         </FlexContainer>
       </ValuesSection>
 
-      <StoryBackground fluid={storyBackgroundImageStack}>
-        <Title primary>Our Story</Title>
-        <StoryDescription>
-          We are a church that was started over 6 years ago by the South Central
-          Ohio District Church of the Nazarene.­ From the beginning we have
-          desired to reach and provide a sense of Christian community for the
-          diverse cultures and various language groups in Columbus, OH.
-        </StoryDescription>
-        <StoryDescription>
-          Although we’ve been around for 6 years, in many ways we feel like we
-          are just beginning the journey that God has for us as a church and
-          community. We have a new staff, updated facilities and passionate
-          people who are eager to connect with one another and work for the
-          common good of the great city of Columbus.
-        </StoryDescription>
-      </StoryBackground>
+      {/* <StoryBackground fluid={storyBackgroundImageStack}> */}
+      <BackgroundImage fluid={data.story.childImageSharp.fluid}>
+        <Section as="div" overlay>
+          <Title primary>Our Story</Title>
+          <StoryDescription>
+            We are a church that was started over 6 years ago by the South
+            Central Ohio District Church of the Nazarene.­ From the beginning we
+            have desired to reach and provide a sense of Christian community for
+            the diverse cultures and various language groups in Columbus, OH.
+          </StoryDescription>
+          <StoryDescription>
+            Although we’ve been around for 6 years, in many ways we feel like we
+            are just beginning the journey that God has for us as a church and
+            community. We have a new staff, updated facilities and passionate
+            people who are eager to connect with one another and work for the
+            common good of the great city of Columbus.
+          </StoryDescription>
+        </Section>
+      </BackgroundImage>
+      {/* </StoryBackground> */}
 
       <TeamSection>
         <Title>Our Team</Title>
