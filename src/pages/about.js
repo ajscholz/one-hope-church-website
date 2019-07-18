@@ -183,13 +183,19 @@ const About = ({ data }) => {
 
       <Section>
         <Title primary>Our Location</Title>
-        <H3>Service Time</H3>
-        <ServiceTime>Sundays | 10:30a</ServiceTime>
-        <H3>Address</H3>
-        <Address>
-          1389 E. Cooke Rd., <br />
-          Columbus, OH 43224
-        </Address>
+        <OuterInfoWrapper>
+          <InnerInfoWrapper>
+            <H3>Service Time</H3>
+            <LocationInfo>Sundays | 10:30a</LocationInfo>
+          </InnerInfoWrapper>
+          <InnerInfoWrapper>
+            <H3>Address</H3>
+            <LocationInfo>
+              1389 E. Cooke Rd., <br />
+              Columbus, OH 43224
+            </LocationInfo>
+          </InnerInfoWrapper>
+        </OuterInfoWrapper>
         <LoadScript
           id="script-loader"
           googleMapsApiKey="AIzaSyDBkvXo0CPbEMhEr4I900gRQphzwJaM4EA"
@@ -311,22 +317,36 @@ const PastorName = styled.h4`
 `
 
 const PastorDescription = styled.div`
+  width: 100%;
   margin-bottom: 0;
   font-size: 0.85rem;
+`
+
+const OuterInfoWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+`
+
+const InnerInfoWrapper = styled.div`
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin: 0 auto;
+  height: 90px;
 `
 
 const H3 = styled.h3`
   margin: 0;
 `
 
-const Address = styled(StoryDescription)`
-  color: initial;
+const LocationInfo = styled.div`
   margin-bottom: 1rem;
-`
-
-const ServiceTime = styled(StoryDescription)`
-  color: initial;
-  margin-bottom: 1rem;
+  text-align: center;
 `
 
 export default About
