@@ -71,7 +71,7 @@ const NextSteps = ({ data }) => {
             toggle()
           }}
         >
-          Join A Small Group Today
+          Find Your Small Group
         </Button>
       </Section>
       <BackgroundImage fluid={data.nextBanner.childImageSharp.fluid}>
@@ -109,7 +109,7 @@ const NextSteps = ({ data }) => {
               toggle()
             }}
           >
-            Discover Your Next Spiritual Step
+            Find Your Next Step
           </StyledNextButton>
         </Section>
       </BackgroundImage>

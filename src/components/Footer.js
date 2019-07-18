@@ -49,7 +49,7 @@ const Footer = styled.footer`
   background: var(--blue);
   color: white;
   width: 100vw;
-  padding: 2rem;
+  padding: 4rem;
   display: ${props => (props.hide ? "none" : "flex")};
   flex-direction: column;
   justify-content: center;

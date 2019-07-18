@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export default styled.button`
-  text-transform: uppercase;
+  text-transform: lowercase;
   color: white;
   font-size: 0.9rem;
   padding: 1em 2em;

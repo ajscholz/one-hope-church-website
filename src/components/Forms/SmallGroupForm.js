@@ -7,10 +7,7 @@ import Button from "../Button"
 
 // Yup validation schema for formik form
 const ContactSchema = Yup.object().shape({
-  name: Yup.string()
-    .min(3, "*Too Short!")
-    .max(50, "*Too Long!")
-    .required("*Required"),
+  name: Yup.string().required("*Required"),
   phone: Yup.string().required("*Required"),
   email: Yup.string()
     .email("*Invalid email")
@@ -21,9 +18,9 @@ export default ({ className }) => {
   return (
     <Formik
       initialValues={{
-        name: "Andrew",
-        phone: "614-560-1176",
-        email: "andrew@citynorth.church",
+        name: "",
+        phone: "",
+        email: "",
       }}
       validationSchema={ContactSchema}
       onSubmit={async (values, { setSubmitting, resetForm }) => {
@@ -113,7 +110,7 @@ export default ({ className }) => {
             }
             className={className}
           >
-            Submit
+            Sign up now
           </StyledButton>
         </StyledForm>
       )}
@@ -128,7 +125,7 @@ const StyledForm = styled(Form)`
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: repeat(4, auto);
-  grid-gap: 0.5em;
+  grid-gap: 0.75em;
   font-size: 0.9rem;
 `
 
@@ -173,9 +170,9 @@ const StyledButton = styled(Button)`
   transition: all 0.3s ease;
   cursor: pointer;
   border: 2px solid #f8820d;
+  margin-top: 1.5rem;
   &:hover,
   &:focus {
-    transform: scale(1.05);
     background: none;
     color: #f8820d;
   }

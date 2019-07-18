@@ -53,13 +53,13 @@ export default ({ className }) => {
           setSubmitting(false)
         }
       }}
-      render={props => (
+      render={({ handleSubmit, errors, isSubmitting }) => (
         <StyledForm
           className={className}
           method="post"
           onSubmit={e => {
             e.preventDefault()
-            props.handleSubmit(e)
+            handleSubmit(e)
           }}
         >
           <FieldWrapper>
@@ -67,7 +67,7 @@ export default ({ className }) => {
               type="text"
               name="name"
               placeholder="Name"
-              error={props.errors.name}
+              error={errors.name}
               className={className}
             />
             <StyledErrorMessage
@@ -81,7 +81,7 @@ export default ({ className }) => {
               type="email"
               name="email"
               placeholder="Email"
-              error={props.errors.email}
+              error={errors.email}
               className={className}
             />
             <StyledErrorMessage
@@ -96,7 +96,7 @@ export default ({ className }) => {
               component="textarea"
               placeholder="Message..."
               rows="5"
-              error={props.errors.message}
+              error={errors.message}
               className={className}
             ></StyledField>
             <StyledErrorMessage
@@ -108,14 +108,11 @@ export default ({ className }) => {
           <StyledButton
             type="submit"
             disabled={
-              props.errors.name ||
-              props.errors.email ||
-              props.errors.message ||
-              props.isSubmitting
+              errors.name || errors.email || errors.message || isSubmitting
             }
             className={className}
           >
-            Submit
+            send message
           </StyledButton>
         </StyledForm>
       )}
@@ -130,7 +127,7 @@ const StyledForm = styled(Form)`
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: repeat(4, auto);
-  grid-gap: 0.5em;
+  grid-gap: 0.75em;
   font-size: 0.9rem;
 `
 
@@ -151,12 +148,13 @@ const StyledField = styled(Field)`
   font-size: 1em;
   resize: none;
   box-sizing: border-box;
-  border: ${props => (props.error ? "2px solid tomato" : "2px solid #fccd9e")};
+  border: ${props =>
+    props.error ? "2px solid tomato" : "2px solid var(--primaryLight)"};
   border-radius: 16px;
   background: transparent;
   transition: all 0.3s ease;
   &:focus {
-    border: 2px solid #f8820d;
+    border: 2px solid var(--primary);
   }
 `
 
@@ -179,11 +177,12 @@ const StyledButton = styled(Button)`
   width: 100%;
   transition: all 0.3s ease;
   cursor: pointer;
-  border: 2px solid #f8820d;
+  border: 2px solid var(--primary);
+  margin-top: 1rem;
   &:hover,
   &:focus {
     transform: scale(1.05);
     background: none;
-    color: #f8820d;
+    color: var(--primary);
   }
 `

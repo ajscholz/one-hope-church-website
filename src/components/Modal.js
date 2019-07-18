@@ -59,13 +59,13 @@ const ModalWrapper = styled.div`
 
 const Modal = styled.div`
   width: 100%;
-  padding: 1.5rem;
+  padding: 2rem;
   height: auto;
   max-width: 600px;
   max-height: 90vh;
   background: white;
   border-radius: 8px;
-  overflow: hidden;
+  /* overflow: hidden; */
   z-index: 500;
 `
 
@@ -81,6 +81,7 @@ const Title = styled.h3`
 `
 
 const CloseButton = styled.button`
+  color: rgba(57, 70, 72, 0.9);
   padding: 0;
   border: none;
   background: transparent;
@@ -88,9 +89,9 @@ const CloseButton = styled.button`
 
 const StyledIcon = styled(FaTimes)`
   display: block;
-  font-size: 1.5rem;
-  transition: var(--mainTransition);
+  font-size: 1.25rem;
+  /* transition: var(--mainTransition);
   ${CloseButton}:hover & {
     transform: rotate(-180deg);
-  }
+  } */
 `
