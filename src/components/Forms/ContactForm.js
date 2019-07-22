@@ -24,9 +24,12 @@ export default ({ className }) => {
   return (
     <Formik
       initialValues={{
-        name: "",
-        email: "",
-        message: "",
+        // name: "",
+        // email: "",
+        // message: "",
+        name: "Andrew",
+        email: "andrew@citynorth.church",
+        message: "Hi! This is a test email.",
       }}
       validationSchema={ContactSchema}
       onSubmit={async (values, { setSubmitting, resetForm }) => {

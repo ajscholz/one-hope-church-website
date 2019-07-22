@@ -1,5 +1,7 @@
 const nodemailer = require("nodemailer")
-// require("dotenv").config({ path: `.env.development` })
+// require("dotenv").config({
+//   path: `/.env.${process.env.NODE_ENV}`,
+// })
 
 // https://github.com/kicholen/makeithappen/blob/79b9c8f3a7238dc75308f9a69d769d7cda7dd522/func/sendMail.js for more help
 
@@ -11,10 +13,10 @@ exports.handler = async function(event, context, callback) {
     host: "smtp.mailtrap.io",
     port: 2525,
     auth: {
-      // user: process.env.MAILTRAP_USERNAME,
-      // pass: process.env.MAILTRAP_PASSWORD,
-      user: "a949c930869b32",
-      pass: "00f4db531864a8",
+      user: process.env.MAILTRAP_USERNAME,
+      pass: process.env.MAILTRAP_PASSWORD,
+      // user: "a949c930869b32",
+      // pass: "00f4db531864a8",
     },
   })
 
