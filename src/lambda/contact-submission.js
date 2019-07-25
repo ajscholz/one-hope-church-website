@@ -1,22 +1,41 @@
 const nodemailer = require("nodemailer")
-// require("dotenv").config({
-//   path: `/.env.${process.env.NODE_ENV}`,
-// })
 
-// https://github.com/kicholen/makeithappen/blob/79b9c8f3a7238dc75308f9a69d769d7cda7dd522/func/sendMail.js for more help
-
-exports.handler = async function(event, context, callback) {
+exports.handler = async event => {
   const { body } = event
   let data = JSON.parse(body)
+
+  // check for all data (should have been handled within the form)
+  if (data.name === undefined) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
+        msg: "A name is required. Please try again.",
+      }),
+    }
+  } else if (data.email === undefined) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
+        msg: "An email is required. Please try again.",
+      }),
+    }
+  } else if (data.message === undefined) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
+        msg: "A message is required. Please try again.",
+      }),
+    }
+  }
 
   let transporter = nodemailer.createTransport({
     host: "smtp.mailtrap.io",
     port: 2525,
     auth: {
-      user: process.env.MAILTRAP_USERNAME,
-      pass: process.env.MAILTRAP_PASSWORD,
-      // user: "a949c930869b32",
-      // pass: "00f4db531864a8",
+      // user: process.env.MAILTRAP_USERNAME,
+      // pass: process.env.MAILTRAP_PASSWORD,
+      user: "a949c930869b32",
+      pass: "00f4db531864a8",
     },
   })
 
@@ -25,31 +44,42 @@ exports.handler = async function(event, context, callback) {
       name: "AJSolutions",
       address: "andrew@citynorth.church",
     },
-    replyTo: data.values.email,
-    to: "info@onehope.church",
-    subject: "Website Contact Form Submission",
-    text: `You've received a new form submission!
+    replyTo: data.email,
+    to: data.siteEmail,
+    subject: `Website "${data.formName}" Form Submission`,
+    text: `You've received a new "${data.formName}" form submission!
 
-    Name: ${data.values.name}
-    Email: ${data.values.email}
-    Message: ${data.values.message}
+    Name: ${data.name}
+    Email: ${data.email}
+    Message: ${data.message}
+    Form: ${data.formName}
     
 To reply to your message simply reply to this email directly.`,
-    html: `<h1>You've recieved a new form submission!</h1><hr><p><b>Name: </b>${data.values.name}</p><p><b>Email: </b>${data.values.email}</p><p><b>Message: </b>${data.values.message}</p><hr><h4>To reply to your message simply reply to this email directly!</h4>`,
+    html: `<h1>You've recieved a new "${data.formName}" form submission!</h1><hr><p><b>Name: </b>${data.name}</p><p><b>Email: </b>${data.email}</p><p><b>Message: </b>${data.message}</p><hr><h4>To reply to your message simply reply to this email directly!</h4>`,
   }
 
-  let response
   try {
-    response = await transporter.sendMail(message)
-  } catch (error) {
-    console.log(error)
+    const response = await transporter.sendMail(message)
+    if (response.accepted.length === 0) {
+      console.log(`${data.formName} form submission failed`)
+      return {
+        statusCode: 500,
+        body: JSON.stringify({
+          msg: `Sorry, there was an error submitting your message. Please try again.`,
+        }),
+      }
+    }
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ msg: `Message submitted successfully` }),
+    }
+  } catch (err) {
+    console.log(err)
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
+        msg: `Sorry, there was an error submitting your message. Please try again.`,
+      }),
+    }
   }
-
-  callback(null, {
-    statusCode: 200,
-    body: JSON.stringify({
-      msg: "Form submitted successfully",
-      data: response,
-    }),
-  })
 }
