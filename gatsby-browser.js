@@ -10,6 +10,8 @@ require("typeface-raleway")
 
 const React = require("react")
 const Layout = require("./src/components/Layout").default
+const LanguageProvider = require("./src/utils/context/LanguageContext")
+  .LanguageProvider
 
 exports.wrapPageElement = ({ element, props }) => {
   return <Layout {...props}>{element}</Layout>
@@ -22,3 +24,7 @@ exports.onClientEntry = () => {
     console.log(`# IntersectionObserver is polyfilled!`)
   }
 }
+
+exports.wrapRootElement = ({ element }) => (
+  <LanguageProvider>{element}</LanguageProvider>
+)

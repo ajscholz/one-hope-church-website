@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
 import BackgroundImage from "gatsby-background-image"
@@ -18,6 +18,8 @@ import IconInfo from "../components/IconInfo"
 import FlexContainer from "../components/FlexContainer"
 
 import staff from "../utils/staff"
+
+import { LanguageContext } from "../utils/context/LanguageContext"
 
 export const query = graphql`
   {
@@ -67,6 +69,8 @@ export const query = graphql`
 `
 
 const About = ({ data }) => {
+  const [lang] = useContext(LanguageContext)
+
   const oneHopeChurch = {
     lat: 40.047241,
     lng: -82.978953,
@@ -84,7 +88,9 @@ const About = ({ data }) => {
     <>
       <SEO title="About" />
       <HeroImage image={data.hero.childImageSharp.fluid}>
-        <Banner>About</Banner>
+        <Banner>
+          {lang === "SP" ? "Acerca De" : lang === "PT" ? "Sobre" : "About"}
+        </Banner>
       </HeroImage>
       <Section>
         <Vision>

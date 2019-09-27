@@ -1,13 +1,20 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled, { css } from "styled-components"
 import { links } from "../utils/Links"
 import { Link } from "gatsby"
 
+import { LanguageContext } from "../utils/context/LanguageContext"
+
 export default ({ path }) => {
+  const [lang] = useContext(LanguageContext)
+
+  const langLinks =
+    lang === "SP" ? links.sp : lang === "PT" ? links.pt : links.en
+
   return (
     <Navbar homepage={path === "/" ? true : false}>
       <Wrapper>
-        {links.map(link => {
+        {langLinks.map(link => {
           return link.text === "give" ? (
             <StyledLink
               as="a"

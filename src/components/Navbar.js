@@ -1,8 +1,10 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 import { links } from "../utils/Links"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
+
+import { LanguageContext } from "../utils/context/LanguageContext"
 
 const logo = graphql`
   {
@@ -18,15 +20,25 @@ const logo = graphql`
 
 export default ({ open }) => {
   const image = useStaticQuery(logo)
+  const [lang, setLang] = useContext(LanguageContext)
+
+  const langLinks =
+    lang === "SP" ? links.sp : lang === "PT" ? links.pt : links.en
+
   return (
     <Navbar>
       <Link to="/">
         <StyledImg fluid={image.file.childImageSharp.fluid} open={open} />
       </Link>
+      <LangContainer>
+        <LangButton onClick={() => setLang("EN")}>🇺🇸</LangButton>
+        <LangButton onClick={() => setLang("SP")}>🇵🇲</LangButton>
+        <LangButton onClick={() => setLang("PT")}>🇵🇹</LangButton>
+      </LangContainer>
       {/* <List open={open}> */}
       <List>
-        {links.map(link => {
-          return link.text === "give" ? (
+        {langLinks.map(link => {
+          return link.text === "give" || link.text === "dar" ? (
             <StyledLink
               as="a"
               href={link.path}
@@ -116,4 +128,15 @@ const StyledLink = styled.li`
       background: var(--primary);
     }
   }
+`
+const LangContainer = styled.div`
+  margin: auto 0;
+`
+
+const LangButton = styled.button`
+  border: none;
+  background: none;
+  padding: none;
+  font-size: 1.5rem;
+  margin: 0 0.5rem;
 `
